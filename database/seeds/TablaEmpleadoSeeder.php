@@ -12,6 +12,6 @@ class TablaEmpleadoSeeder extends Seeder
      */
     public function run()
     {
-        factory(Empleado::class,10)->create();
+        factory(Empleado::class,100)->create();
     }
 }

@@ -11,7 +11,7 @@ $factory->define(Empleado::class, function (Faker $faker) {
         //
         'Nombres' => $faker->word,
         'Apellidos' => $faker->word,
-        'IdTipoDocumento' => $faker->unique()->randomDigit,
+        'IdTipoDocumento' => $faker->randomElement([1,2]),
         'NumeroDoc' => $faker->word,
         'Observaciones'=>$faker->text
     ];
