@@ -7,7 +7,7 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="description" content="A front-end template that helps you build fast, modern mobile web apps.">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <title>Material Dashboard Lite</title>
+        <title>@yield('Inicio','ManpaCol') | ManpaCol</title>
 
         <!-- Add to homescreen for Chrome on Android -->
         <meta name="mobile-web-app-capable" content="yes">
@@ -47,11 +47,12 @@
             <!-- Aside -->
             @include ("theme/$theme/aside")
 
+            <!--Content-->
             <main class="mdl-layout__content">
 
                     <div class="mdl-grid ui-cards">
                             <div class="mdl-cell mdl-cell--12-col-desktop mdl-cell--12-col-tablet mdl-cell--4-col-phone">
-                                <h3>ManpaCol :D</h3>
+                                @yield('contenido')
                             </div>
                     </div>
             </main>

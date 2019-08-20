@@ -2,14 +2,14 @@
         <div class="mdl-layout__header-row">
             <div class="mdl-layout-spacer"></div>
             <!-- Search-->
-            <div class="mdl-textfield mdl-js-textfield mdl-textfield--expandable">
-                <label class="mdl-button mdl-js-button mdl-button--icon" for="search">
+            <div class="mdl-textfield mdl-js-textfield">
+                <label class="x" for="search">
                     <i class="material-icons">search</i>
                 </label>
 
-                <div class="mdl-textfield__expandable-holder">
-                    <input class="mdl-textfield__input" type="text" id="search"/>
-                    <label class="mdl-textfield__label" for="search">Enter your query...</label>
+                <div class="mdl-textfield">
+                    <input class="mdl-textfield__input" type="text" id="search" placeholder="Enter your query..."/>
+                    
                 </div>
             </div>
 
