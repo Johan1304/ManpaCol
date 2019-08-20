@@ -8,7 +8,7 @@
                 </label>
 
                 <div class="mdl-textfield">
-                    <input class="mdl-textfield__input" type="text" id="search" placeholder="Enter your query..."/>
+                    <input class="mdl-textfield__input" type="text" id="search" placeholder="Que buscas?"/>
                     
                 </div>
             </div>
