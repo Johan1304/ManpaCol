@@ -21,5 +21,10 @@ class LoginController extends Controller
         return view('seguridad.index');
     }
 
+    public function username()
+    {
+        return 'usuario';
+    }
+
     
 }

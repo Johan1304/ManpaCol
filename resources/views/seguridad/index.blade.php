@@ -34,47 +34,58 @@
     <link rel="stylesheet" href="{{asset("assets/$theme/css/lib/getmdl-select.min.css")}}">
     <link rel="stylesheet" href="{{asset("assets/$theme/css/lib/nv.d3.min.css")}}">
     <link rel="stylesheet" href="{{asset("assets/$theme/css/application.min.css")}}">
+    <link rel="stylesheet" href="{{asset("assets/$theme/css/style.min.css")}}">
     <!-- endinject -->
 
 </head>
 <body>
-
+<form action="{{route('login_post')}}" method="POST" autocomplete="off">
+    @csrf
 <div class="mdl-layout mdl-js-layout color--gray is-small-screen login">
     <main class="mdl-layout__content">
         <div class="mdl-card mdl-card__login mdl-shadow--2dp">
                 <div class="mdl-card__supporting-text color--dark-gray">
                     <div class="mdl-grid">
                         <div class="mdl-cell mdl-cell--12-col mdl-cell--4-col-phone">
-                            <span class="mdl-card__title-text text-color--smooth-gray">DARKBOARD</span>
+                            <span class="mdl-card__title-text text-color--smooth-gray">MANPACOL</span>
                         </div>
                         <div class="mdl-cell mdl-cell--12-col mdl-cell--4-col-phone">
-                            <span class="login-name text-color--white">Sign in</span>
-                            <span class="login-secondary-text text-color--smoke">Enter fields to sign in to DARKBOARD</span>
+                            <span class="login-name text-color--white">Inicio de Sesion</span>
+                            <span class="login-secondary-text text-color--smoke">Llene los campos requeridos</span>
                         </div>
+                        @if ($errors->any())
+                        <div class="alert" alert-danger alert-dismissible>
+                            @foreach ($errors->all() as $error)
+                                <span>{{$error}}</span>
+                            @endforeach
+                        </div>
+                            
+                        @endif
                         <div class="mdl-cell mdl-cell--12-col mdl-cell--4-col-phone">
                             <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label full-size">
-                                <input class="mdl-textfield__input" type="text" id="e-mail">
-                                <label class="mdl-textfield__label" for="e-mail">Email</label>
+                                <input type="text" class="mdl-textfield__input"  value="{{old('usuario')}}" name="usuario">
+                                <label class="mdl-textfield__label" for="e-mail">Usuario</label>
                             </div>
                             <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label full-size">
-                                <input class="mdl-textfield__input" type="text" id="password">
-                                <label class="mdl-textfield__label" for="password">Password</label>
+                                <input class="mdl-textfield__input" type="password" name="Password">
+                                <label class="mdl-textfield__label" for="password">Contraseña</label>
                             </div>
-                            <a href="forgot-password.html" class="login-link">Forgot password?</a>
+                            <a href="forgot-password.html" class="login-link">¿Olvidaste tu contraseña?</a>
                         </div>
                         <div class="mdl-cell mdl-cell--12-col mdl-cell--4-col-phone submit-cell">
                             <div class="mdl-layout-spacer"></div>
-                            <a href="index.html">
-                                <buttons class="mdl-button mdl-js-button mdl-button--raised color--light-blue">
-                                    SIGN IN
-                                </buttons>
-                            </a>
+                            
+                                <button type="submit" class="mdl-button mdl-js-button mdl-button--raised color--light-blue">
+                                    Iniciar Sesion
+                                </button>
+                            
                         </div>
                     </div>
                 </div>
             </div>
     </main>
 </div>
+</form>
 
 <!-- inject:js -->
 <script src="{{asset("assets/$theme/js/d3.min.js")}}"></script>

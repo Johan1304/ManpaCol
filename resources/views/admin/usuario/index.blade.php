@@ -37,7 +37,7 @@
                                         <td class="mdl-data-table__cell--non-numeric">{{$usuario->NumDoc}}</td>
                                         <td class="mdl-data-table__cell--non-numeric">{{$usuario->Email}}</td>
                                         <td class="mdl-data-table__cell--non-numeric">{{$usuario->usuario}}</td>
-                                        <td class="mdl-data-table__cell--non-numeric">{{$usuario->Contraseña}}</td>
+                                        <td class="mdl-data-table__cell--non-numeric">{{$usuario->Password}}</td>
                                         <td class="mdl-data-table__cell--non-numeric">
                                             <span class="label label--mini background-color--primary">{{$usuario->Estado}}</span> 
                                         </td>
