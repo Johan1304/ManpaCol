@@ -26,7 +26,8 @@ class UsuarioController extends Controller
      */
     public function crear()
     {
-        //
+        
+        return view('admin.usuario.crear');
     }
 
     /**
