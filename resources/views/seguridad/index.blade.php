@@ -39,7 +39,7 @@
 
 </head>
 <body>
-<form action="{{route('login_post')}}" method="POST" autocomplete="off">
+<form action="{{route('login_post')}}" method="POST" autocomplete="on">
     @csrf
 <div class="mdl-layout mdl-js-layout color--gray is-small-screen login">
     <main class="mdl-layout__content">
@@ -67,7 +67,7 @@
                                 <label class="mdl-textfield__label" for="e-mail">Usuario</label>
                             </div>
                             <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label full-size">
-                                <input class="mdl-textfield__input" type="password" name="Password">
+                                <input class="mdl-textfield__input" type="password" name="password">
                                 <label class="mdl-textfield__label" for="password">Contraseña</label>
                             </div>
                             <a href="forgot-password.html" class="login-link">¿Olvidaste tu contraseña?</a>

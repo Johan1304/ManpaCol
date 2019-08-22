@@ -12,15 +12,15 @@
 */
 
 
+Route::get('/', 'InicioController@index');
+
 
 Route::get('seguridad/login','Seguridad\LoginController@index')->name('login');
-Route::post('seguridad/login','Seguridad\LoginController@index')->name('login_post');
+Route::post('seguridad/login','Seguridad\LoginController@login')->name('login_post');
+Route::get('seguridad/logout','Seguridad\LoginController@logout')->name('logout');
 
-
-
-Route::get('/', 'InicioController@index');
-Route::group(['prefix' => 'admin', 'namespace' => 'Admin','middleware'=>'auth',], function () {
-
+Route::group(['prefix' => 'admin', 'namespace' => 'Admin','middleware'=>'auth'], function () {
+    Route::get('','AdminController@index');
     Route::get('usuario', 'UsuarioController@index')->name('usuario');
     Route::get('usuario/crear', 'UsuarioController@index')->name('crear_usuario');
     Route::get('empleado', 'EmpleadoController@index')->name('empleado');

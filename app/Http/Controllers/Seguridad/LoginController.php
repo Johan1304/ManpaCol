@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers\Seguridad;
 
+
+
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
@@ -9,7 +11,8 @@ use Illuminate\Foundation\Auth\AuthenticatesUsers;
 class LoginController extends Controller
 {
     use AuthenticatesUsers;
-    protected $redirectTo = '/admin';
+    
+    protected $rectTo = '/admin';
     
 
     public function __construct()
