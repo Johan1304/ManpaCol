@@ -10,11 +10,7 @@ class Usuario extends Authenticatable
     protected $remember_token = false;
     protected $table='usuario';
 
-    protected $fillable = [
-
-        'IdTipoUsuario','Nombres','Apellidos','IdTipoDocumento','NumDoc','Email','usuario', 'password',
-
-    ];
+    protected $fillable = ['TipoUsuario','Nombres','Apellidos','TipoDpcumento','Email','usuario','password'];
 
     protected $guarded = ['Id'];
 }

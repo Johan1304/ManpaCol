@@ -8,6 +8,10 @@
 <div class="mdl-card mdl-shadow--2dp">
         <div class="box-header">
             <h3 class="box-title"> &nbsp&nbspUsuarios</h3>
+
+                <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect button--colored-light-blue" location.href="">
+                    crear
+                </button>
         </div>
         <div class="mdl-card__supporting-text no-padding">
 
@@ -37,9 +41,15 @@
                                         <td class="mdl-data-table__cell--non-numeric">{{$usuario->NumDoc}}</td>
                                         <td class="mdl-data-table__cell--non-numeric">{{$usuario->Email}}</td>
                                         <td class="mdl-data-table__cell--non-numeric">{{$usuario->usuario}}</td>
-                                        <td class="mdl-data-table__cell--non-numeric">{{$usuario->Password}}</td>
+                                        <td class="mdl-data-table__cell--non-numeric" width="20">{{$usuario->password}}</td>
                                         <td class="mdl-data-table__cell--non-numeric">
-                                            <span class="label label--mini background-color--primary">{{$usuario->Estado}}</span> 
+
+                                            @if ($usuario['Estado'] =='Activo')
+                                            <span class="label label--mini background-color--primary">{{$usuario->Estado}}</span>
+                                            @else
+                                            <span class="label label--mini background-color--secondary">{{$usuario->Estado}}</span>
+                                            @endif
+                                             
                                         </td>
                                 </tr>
                             @endforeach

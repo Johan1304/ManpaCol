@@ -1,13 +1,13 @@
 <?php
 
-namespace App\Http\Controllers\admin;
+namespace App\Http\Controllers\Admin;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\ValidacionUsuario;
-use App\Models\Admin\Usuario;
+use App\Models\Admin\TipoUsuario;
 
-class UsuarioController extends Controller
+class TipoUsuarioController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -16,8 +16,8 @@ class UsuarioController extends Controller
      */
     public function index()
     {
-        $usuarios=Usuario::orderBy('id')->get();
-        return view('admin.usuario.index',compact('usuarios'));
+        $tiposu=TipoUsuario::orderBy('id')->get();
+        return view('admin.usuario.crear', compact('tiposu'));
     }
 
     /**
@@ -25,12 +25,9 @@ class UsuarioController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function crear()
+    public function create()
     {
-        
-        return view('admin.usuario.crear');
-
-
+        //
     }
 
     /**
@@ -39,10 +36,9 @@ class UsuarioController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function guardar(ValidacionUsuario $request)
+    public function store(ValidacionUsuario $request)
     {
-        Usuario::create(request()->all());
-        return redirect('admin/usuario')->with('mensaje','Usuario creado correctamente');
+        //
     }
 
     /**
@@ -51,7 +47,7 @@ class UsuarioController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function mostrar($id)
+    public function show($id)
     {
         //
     }
@@ -62,7 +58,7 @@ class UsuarioController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function editar($id)
+    public function edit($id)
     {
         //
     }
@@ -74,9 +70,9 @@ class UsuarioController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function actualizar (Request $request, $id)
+    public function update(Request $request, $id)
     {
-        
+        //
     }
 
     /**
@@ -85,7 +81,7 @@ class UsuarioController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function eliminar($id)
+    public function destroy($id)
     {
         //
     }

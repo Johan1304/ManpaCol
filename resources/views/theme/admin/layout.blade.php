@@ -35,6 +35,7 @@
         <link rel="stylesheet" href="{{asset("assets/$theme/css/lib/getmdl-select.min.css")}}">
         <link rel="stylesheet" href="{{asset("assets/$theme/css/lib/nv.d3.min.css")}}">
         <link rel="stylesheet" href="{{asset("assets/$theme/css/application.min.css")}}">
+        <link rel="stylesheet" href="{{asset("assets/css/custom.css")}}">
         <!-- endinject -->
 
     </head>

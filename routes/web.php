@@ -23,6 +23,8 @@ Route::group(['prefix' => 'admin', 'namespace' => 'Admin'], function () {
     Route::get('','AdminController@index');
     Route::get('usuario', 'UsuarioController@index')->name('usuario');
     Route::get('usuario/crear', 'UsuarioController@crear')->name('crear_usuario');
+    Route::post('usuario/crear', 'UsuarioController@guardar')->name('guardar');
+    Route::get('usuario/crear', 'TipoDocController@index')->name('creartipodoc');
     Route::get('empleado', 'EmpleadoController@index')->name('empleado');
     Route::get('', 'AdminController@index');
 });

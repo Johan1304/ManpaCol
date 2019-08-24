@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.8.5
+-- version 4.9.0.1
 -- https://www.phpmyadmin.net/
 --
--- Host: localhost:3306
--- Generation Time: Aug 21, 2019 at 05:59 AM
--- Server version: 5.7.24
--- PHP Version: 7.2.11
+-- Servidor: localhost:3306
+-- Tiempo de generación: 22-08-2019 a las 16:45:33
+-- Versión del servidor: 5.7.24
+-- Versión de PHP: 7.2.11
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -19,13 +19,13 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `manpacol`
+-- Base de datos: `manpacol`
 --
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `detallesentrada`
+-- Estructura de tabla para la tabla `detallesentrada`
 --
 
 CREATE TABLE `detallesentrada` (
@@ -37,7 +37,7 @@ CREATE TABLE `detallesentrada` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `detallessalida`
+-- Estructura de tabla para la tabla `detallessalida`
 --
 
 CREATE TABLE `detallessalida` (
@@ -49,7 +49,7 @@ CREATE TABLE `detallessalida` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `empleado`
+-- Estructura de tabla para la tabla `empleado`
 --
 
 CREATE TABLE `empleado` (
@@ -64,7 +64,7 @@ CREATE TABLE `empleado` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `empleado`
+-- Volcado de datos para la tabla `empleado`
 --
 
 INSERT INTO `empleado` (`Id`, `Nombres`, `Apellidos`, `IdTipoDocumento`, `NumeroDoc`, `Observaciones`, `updated_at`, `created_at`) VALUES
@@ -172,7 +172,7 @@ INSERT INTO `empleado` (`Id`, `Nombres`, `Apellidos`, `IdTipoDocumento`, `Numero
 -- --------------------------------------------------------
 
 --
--- Table structure for table `entrada`
+-- Estructura de tabla para la tabla `entrada`
 --
 
 CREATE TABLE `entrada` (
@@ -184,7 +184,7 @@ CREATE TABLE `entrada` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `material`
+-- Estructura de tabla para la tabla `material`
 --
 
 CREATE TABLE `material` (
@@ -199,7 +199,7 @@ CREATE TABLE `material` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `materialdaniado`
+-- Estructura de tabla para la tabla `materialdaniado`
 --
 
 CREATE TABLE `materialdaniado` (
@@ -210,7 +210,7 @@ CREATE TABLE `materialdaniado` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `proveedor`
+-- Estructura de tabla para la tabla `proveedor`
 --
 
 CREATE TABLE `proveedor` (
@@ -225,7 +225,7 @@ CREATE TABLE `proveedor` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `salida`
+-- Estructura de tabla para la tabla `salida`
 --
 
 CREATE TABLE `salida` (
@@ -238,7 +238,7 @@ CREATE TABLE `salida` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `tamaño`
+-- Estructura de tabla para la tabla `tamaño`
 --
 
 CREATE TABLE `tamaño` (
@@ -249,7 +249,7 @@ CREATE TABLE `tamaño` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `texturapapel`
+-- Estructura de tabla para la tabla `texturapapel`
 --
 
 CREATE TABLE `texturapapel` (
@@ -260,7 +260,7 @@ CREATE TABLE `texturapapel` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `tipodocumento`
+-- Estructura de tabla para la tabla `tipodocumento`
 --
 
 CREATE TABLE `tipodocumento` (
@@ -269,18 +269,18 @@ CREATE TABLE `tipodocumento` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `tipodocumento`
+-- Volcado de datos para la tabla `tipodocumento`
 --
 
 INSERT INTO `tipodocumento` (`Id`, `Descripcion`) VALUES
-(1, 'cedula de ciudadania'),
-(2, 'tarjeta de identidad'),
-(3, 'cedula de extranjeria');
+(1, 'C.C.'),
+(2, 'T.I'),
+(3, 'C.E.');
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `tipomaterial`
+-- Estructura de tabla para la tabla `tipomaterial`
 --
 
 CREATE TABLE `tipomaterial` (
@@ -292,7 +292,7 @@ CREATE TABLE `tipomaterial` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `tipopresentacion`
+-- Estructura de tabla para la tabla `tipopresentacion`
 --
 
 CREATE TABLE `tipopresentacion` (
@@ -305,7 +305,7 @@ CREATE TABLE `tipopresentacion` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `tipousuario`
+-- Estructura de tabla para la tabla `tipousuario`
 --
 
 CREATE TABLE `tipousuario` (
@@ -314,7 +314,7 @@ CREATE TABLE `tipousuario` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `tipousuario`
+-- Volcado de datos para la tabla `tipousuario`
 --
 
 INSERT INTO `tipousuario` (`Id`, `Descripcio`) VALUES
@@ -324,7 +324,7 @@ INSERT INTO `tipousuario` (`Id`, `Descripcio`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `usuario`
+-- Estructura de tabla para la tabla `usuario`
 --
 
 CREATE TABLE `usuario` (
@@ -336,53 +336,54 @@ CREATE TABLE `usuario` (
   `NumDoc` varchar(30) DEFAULT NULL,
   `Email` varchar(100) DEFAULT NULL,
   `usuario` varchar(50) NOT NULL,
-  `Password` varchar(100) DEFAULT NULL,
+  `password` varchar(100) DEFAULT NULL,
   `Estado` enum('Activo','Inactivo') DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `usuario`
+-- Volcado de datos para la tabla `usuario`
 --
 
-INSERT INTO `usuario` (`Id`, `IdTipoUsuario`, `Nombres`, `Apellidos`, `IdTipoDocumento`, `NumDoc`, `Email`, `usuario`, `Password`, `Estado`) VALUES
+INSERT INTO `usuario` (`Id`, `IdTipoUsuario`, `Nombres`, `Apellidos`, `IdTipoDocumento`, `NumDoc`, `Email`, `usuario`, `password`, `Estado`) VALUES
 (1, 1, 'Johan', 'Barreto', 1, '1000125608', 'jsbarreto80@misena.edu.co', 'johan', '123456', 'Activo'),
-(2, 2, 'Brayan', 'Suarez', 1, '1001342271', 'brayan@gmail.com', 'brayanrpt', '12345', 'Inactivo'),
-(3, 1, NULL, NULL, 1, NULL, NULL, 'admin', '$2y$10$APyCozc6AAg5m5IOAqzCP.U3AbdzNrFS762qTcrk5/mF6KniKim6C', NULL);
+(2, 2, 'Brayan', 'Suarez', 1, '1001342271', 'brayan@gmail.com', 'brayanrpt', '12345', 'Activo'),
+(3, 1, NULL, NULL, 1, NULL, NULL, 'admin', '$2y$10$APyCozc6AAg5m5IOAqzCP.U3AbdzNrFS762qTcrk5/mF6KniKim6C', 'Activo'),
+(4, 1, 'Santiago', 'Aldana', 1, '123456789', 'johan@gmail.com', 'admin123456', '$2y$10$wWqsCBcGMH2trQLLYV/ihu4KbIBJgGgFV0gGrsnCEIbuIIFt5TC9C', 'Inactivo');
 
 --
--- Indexes for dumped tables
+-- Índices para tablas volcadas
 --
 
 --
--- Indexes for table `detallesentrada`
+-- Indices de la tabla `detallesentrada`
 --
 ALTER TABLE `detallesentrada`
   ADD PRIMARY KEY (`idMaterial`,`idEntrada`),
   ADD KEY `idEntrada` (`idEntrada`);
 
 --
--- Indexes for table `detallessalida`
+-- Indices de la tabla `detallessalida`
 --
 ALTER TABLE `detallessalida`
   ADD PRIMARY KEY (`idMaterial`,`idSalida`),
   ADD KEY `idSalida` (`idSalida`);
 
 --
--- Indexes for table `empleado`
+-- Indices de la tabla `empleado`
 --
 ALTER TABLE `empleado`
   ADD PRIMARY KEY (`Id`),
   ADD KEY `IdTipoDocumento` (`IdTipoDocumento`);
 
 --
--- Indexes for table `entrada`
+-- Indices de la tabla `entrada`
 --
 ALTER TABLE `entrada`
   ADD PRIMARY KEY (`Id`),
   ADD KEY `IdProveedor` (`IdProveedor`);
 
 --
--- Indexes for table `material`
+-- Indices de la tabla `material`
 --
 ALTER TABLE `material`
   ADD PRIMARY KEY (`Id`),
@@ -391,19 +392,19 @@ ALTER TABLE `material`
   ADD KEY `IdProveedor` (`IdProveedor`);
 
 --
--- Indexes for table `materialdaniado`
+-- Indices de la tabla `materialdaniado`
 --
 ALTER TABLE `materialdaniado`
   ADD PRIMARY KEY (`idMaterial`);
 
 --
--- Indexes for table `proveedor`
+-- Indices de la tabla `proveedor`
 --
 ALTER TABLE `proveedor`
   ADD PRIMARY KEY (`Id`);
 
 --
--- Indexes for table `salida`
+-- Indices de la tabla `salida`
 --
 ALTER TABLE `salida`
   ADD PRIMARY KEY (`Id`),
@@ -411,44 +412,44 @@ ALTER TABLE `salida`
   ADD KEY `Encargado` (`Encargado`);
 
 --
--- Indexes for table `tamaño`
+-- Indices de la tabla `tamaño`
 --
 ALTER TABLE `tamaño`
   ADD PRIMARY KEY (`Id`);
 
 --
--- Indexes for table `texturapapel`
+-- Indices de la tabla `texturapapel`
 --
 ALTER TABLE `texturapapel`
   ADD PRIMARY KEY (`Id`);
 
 --
--- Indexes for table `tipodocumento`
+-- Indices de la tabla `tipodocumento`
 --
 ALTER TABLE `tipodocumento`
   ADD PRIMARY KEY (`Id`);
 
 --
--- Indexes for table `tipomaterial`
+-- Indices de la tabla `tipomaterial`
 --
 ALTER TABLE `tipomaterial`
   ADD PRIMARY KEY (`Id`),
   ADD KEY `IdTipoPresentacion` (`IdTipoPresentacion`);
 
 --
--- Indexes for table `tipopresentacion`
+-- Indices de la tabla `tipopresentacion`
 --
 ALTER TABLE `tipopresentacion`
   ADD PRIMARY KEY (`Id`);
 
 --
--- Indexes for table `tipousuario`
+-- Indices de la tabla `tipousuario`
 --
 ALTER TABLE `tipousuario`
   ADD PRIMARY KEY (`Id`);
 
 --
--- Indexes for table `usuario`
+-- Indices de la tabla `usuario`
 --
 ALTER TABLE `usuario`
   ADD PRIMARY KEY (`Id`),
@@ -456,113 +457,113 @@ ALTER TABLE `usuario`
   ADD KEY `IdTipoDocumento` (`IdTipoDocumento`);
 
 --
--- AUTO_INCREMENT for dumped tables
+-- AUTO_INCREMENT de las tablas volcadas
 --
 
 --
--- AUTO_INCREMENT for table `empleado`
+-- AUTO_INCREMENT de la tabla `empleado`
 --
 ALTER TABLE `empleado`
   MODIFY `Id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=101;
 
 --
--- AUTO_INCREMENT for table `entrada`
+-- AUTO_INCREMENT de la tabla `entrada`
 --
 ALTER TABLE `entrada`
   MODIFY `Id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT for table `material`
+-- AUTO_INCREMENT de la tabla `material`
 --
 ALTER TABLE `material`
   MODIFY `Id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT for table `proveedor`
+-- AUTO_INCREMENT de la tabla `proveedor`
 --
 ALTER TABLE `proveedor`
   MODIFY `Id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT for table `salida`
+-- AUTO_INCREMENT de la tabla `salida`
 --
 ALTER TABLE `salida`
   MODIFY `Id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT for table `tamaño`
+-- AUTO_INCREMENT de la tabla `tamaño`
 --
 ALTER TABLE `tamaño`
   MODIFY `Id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT for table `texturapapel`
+-- AUTO_INCREMENT de la tabla `texturapapel`
 --
 ALTER TABLE `texturapapel`
   MODIFY `Id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT for table `tipodocumento`
+-- AUTO_INCREMENT de la tabla `tipodocumento`
 --
 ALTER TABLE `tipodocumento`
   MODIFY `Id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
--- AUTO_INCREMENT for table `tipomaterial`
+-- AUTO_INCREMENT de la tabla `tipomaterial`
 --
 ALTER TABLE `tipomaterial`
   MODIFY `Id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT for table `tipopresentacion`
+-- AUTO_INCREMENT de la tabla `tipopresentacion`
 --
 ALTER TABLE `tipopresentacion`
   MODIFY `Id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT for table `tipousuario`
+-- AUTO_INCREMENT de la tabla `tipousuario`
 --
 ALTER TABLE `tipousuario`
   MODIFY `Id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
--- AUTO_INCREMENT for table `usuario`
+-- AUTO_INCREMENT de la tabla `usuario`
 --
 ALTER TABLE `usuario`
-  MODIFY `Id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `Id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
--- Constraints for dumped tables
+-- Restricciones para tablas volcadas
 --
 
 --
--- Constraints for table `detallesentrada`
+-- Filtros para la tabla `detallesentrada`
 --
 ALTER TABLE `detallesentrada`
   ADD CONSTRAINT `detallesentrada_ibfk_1` FOREIGN KEY (`idEntrada`) REFERENCES `entrada` (`Id`),
   ADD CONSTRAINT `detallesentrada_ibfk_2` FOREIGN KEY (`idMaterial`) REFERENCES `material` (`Id`);
 
 --
--- Constraints for table `detallessalida`
+-- Filtros para la tabla `detallessalida`
 --
 ALTER TABLE `detallessalida`
   ADD CONSTRAINT `detallessalida_ibfk_1` FOREIGN KEY (`idSalida`) REFERENCES `salida` (`Id`),
   ADD CONSTRAINT `detallessalida_ibfk_2` FOREIGN KEY (`idMaterial`) REFERENCES `material` (`Id`);
 
 --
--- Constraints for table `empleado`
+-- Filtros para la tabla `empleado`
 --
 ALTER TABLE `empleado`
   ADD CONSTRAINT `empleado_ibfk_1` FOREIGN KEY (`IdTipoDocumento`) REFERENCES `tipodocumento` (`Id`);
 
 --
--- Constraints for table `entrada`
+-- Filtros para la tabla `entrada`
 --
 ALTER TABLE `entrada`
   ADD CONSTRAINT `entrada_ibfk_1` FOREIGN KEY (`IdProveedor`) REFERENCES `proveedor` (`Id`);
 
 --
--- Constraints for table `material`
+-- Filtros para la tabla `material`
 --
 ALTER TABLE `material`
   ADD CONSTRAINT `material_ibfk_1` FOREIGN KEY (`IdTipoMaterial`) REFERENCES `tipomaterial` (`Id`),
@@ -570,26 +571,26 @@ ALTER TABLE `material`
   ADD CONSTRAINT `material_ibfk_3` FOREIGN KEY (`IdProveedor`) REFERENCES `proveedor` (`Id`);
 
 --
--- Constraints for table `materialdaniado`
+-- Filtros para la tabla `materialdaniado`
 --
 ALTER TABLE `materialdaniado`
   ADD CONSTRAINT `materialdaniado_ibfk_1` FOREIGN KEY (`idMaterial`) REFERENCES `material` (`Id`);
 
 --
--- Constraints for table `salida`
+-- Filtros para la tabla `salida`
 --
 ALTER TABLE `salida`
   ADD CONSTRAINT `salida_ibfk_1` FOREIGN KEY (`IdEmpleado`) REFERENCES `empleado` (`Id`),
   ADD CONSTRAINT `salida_ibfk_2` FOREIGN KEY (`Encargado`) REFERENCES `usuario` (`Id`);
 
 --
--- Constraints for table `tipomaterial`
+-- Filtros para la tabla `tipomaterial`
 --
 ALTER TABLE `tipomaterial`
   ADD CONSTRAINT `tipomaterial_ibfk_1` FOREIGN KEY (`IdTipoPresentacion`) REFERENCES `tipopresentacion` (`Id`);
 
 --
--- Constraints for table `usuario`
+-- Filtros para la tabla `usuario`
 --
 ALTER TABLE `usuario`
   ADD CONSTRAINT `usuario_ibfk_1` FOREIGN KEY (`IdTipoUsuario`) REFERENCES `tipousuario` (`Id`),
