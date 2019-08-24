@@ -4,10 +4,10 @@ namespace App\Http\Controllers\Admin;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-use App\Http\Requests\ValidacionUsuario;
-use App\Models\Admin\TipoUsuario;
+use App\Models\Admin\TipoDocumento;
+use App\Models\Admin\Tipousuario;
 
-class TipoUsuarioController extends Controller
+class TipousuarioController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -16,8 +16,8 @@ class TipoUsuarioController extends Controller
      */
     public function index()
     {
-        $tiposu=TipoUsuario::orderBy('id')->get();
-        return view('admin.usuario.crear', compact('tiposu'));
+        $tiposusuario = Tipousuario::orderBy('id')->get();
+        return view('admin.usuario.crear', compact('tiposusuario'));
     }
 
     /**
@@ -25,9 +25,9 @@ class TipoUsuarioController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function crear()
     {
-        //
+
     }
 
     /**
@@ -36,7 +36,7 @@ class TipoUsuarioController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(ValidacionUsuario $request)
+    public function guardar(Request $request)
     {
         //
     }
@@ -47,7 +47,7 @@ class TipoUsuarioController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function mostrar($id)
     {
         //
     }
@@ -58,7 +58,7 @@ class TipoUsuarioController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function editar($id)
     {
         //
     }
@@ -70,7 +70,7 @@ class TipoUsuarioController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function actualizar(Request $request, $id)
     {
         //
     }
@@ -81,7 +81,7 @@ class TipoUsuarioController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function eliminar($id)
     {
         //
     }

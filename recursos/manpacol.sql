@@ -344,11 +344,7 @@ CREATE TABLE `usuario` (
 -- Volcado de datos para la tabla `usuario`
 --
 
-INSERT INTO `usuario` (`Id`, `IdTipoUsuario`, `Nombres`, `Apellidos`, `IdTipoDocumento`, `NumDoc`, `Email`, `usuario`, `password`, `Estado`) VALUES
-(1, 1, 'Johan', 'Barreto', 1, '1000125608', 'jsbarreto80@misena.edu.co', 'johan', '123456', 'Activo'),
-(2, 2, 'Brayan', 'Suarez', 1, '1001342271', 'brayan@gmail.com', 'brayanrpt', '12345', 'Activo'),
-(3, 1, NULL, NULL, 1, NULL, NULL, 'admin', '$2y$10$APyCozc6AAg5m5IOAqzCP.U3AbdzNrFS762qTcrk5/mF6KniKim6C', 'Activo'),
-(4, 1, 'Santiago', 'Aldana', 1, '123456789', 'johan@gmail.com', 'admin123456', '$2y$10$wWqsCBcGMH2trQLLYV/ihu4KbIBJgGgFV0gGrsnCEIbuIIFt5TC9C', 'Inactivo');
+
 
 --
 -- Índices para tablas volcadas

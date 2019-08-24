@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="description" content="A front-end template that helps you build fast, modern mobile web apps.">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Material Dashboard Lite</title>
+    <title>@yield('titulo','Crear usuarios') | ManpaCol</title>
 
     <!-- Add to homescreen for Chrome on Android -->
     <meta name="mobile-web-app-capable" content="yes">
@@ -51,30 +51,36 @@
 
 
     <main class="mdl-layout__content mdl-color--grey-100">
-        <div class="mdl-card mdl-shadow--2dp employer-form" action="#">
+        <div class="mdl-card mdl-shadow--2dp employer-form" action="{{route('guardar')}}">
             <div class="mdl-card__title">
                 <h2>Usuarios</h2>
                 <div class="mdl-card__subtitle"></div>
             </div>
 
             <div class="mdl-card__supporting-text">
-                <form action="{{route('guardar')}}" class="form" metodh='POST'>
-                    <div class="form__article">
+            <form action="{{route('guardar')}}" class="form" metodh='POST'>
+                <div class="form__article">
                     <h3>Datos</h3>
 
                     <div class="mdl-grid">
 
                         <div class="mdl-cell mdl-cell--6-col mdl-textfield mdl-js-textfield mdl-textfield--floating-label getmdl-select">
-                            <input class="mdl-textfield__input" value="---" type="text" id="" name="" readonly tabIndex="-1"/>
+                            <input class="mdl-textfield__input" value="---" type="text" id="tusuario" name="IdTipoUsuario" readonly tabIndex="-1"/>
 
                             <label class="mdl-textfield__label" for="" requerido>TipoUsuario</label>
 
-                            <ul class="mdl-menu mdl-menu--bottom-left mdl-js-menu dark_dropdown" for="gender">
+                            <ul class="mdl-menu mdl-menu--bottom-left mdl-js-menu dark_dropdown" for="tusuario">
+                                    @foreach ($tiposusuario as $tipo)
 
+                                    <li class="mdl-menu__item">{{$tipo->Id}}</li>
+                                    
+                                    @endforeach    
                             </ul>
-                            <label for="" requerido>
+
+                            <label for="tusuario" requerido>
                                 <i class="mdl-icon-toggle__label material-icons">arrow_drop_down</i>
                             </label>
+
                         </div>
                     </div>
 
@@ -99,7 +105,7 @@
 
                             <ul class="mdl-menu mdl-menu--bottom-left mdl-js-menu dark_dropdown" for="gender">
                             @foreach ($documentos as $tipodocumento)
-                            <li class="mdl-menu__item">{{$tipodocumento->Descripcion}}</li>
+                            <li class="mdl-menu__item">{{$tipodocumento->Id}}</li>
                             
                             @endforeach
                             </ul>
@@ -127,7 +133,7 @@
                         </div>
 
                         <div class="mdl-cell mdl-cell--6-col mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-                            <input class="mdl-textfield__input" type="password" id="secondName" name="password' value=""/>
+                            <input class="mdl-textfield__input" type="password" id="secondName" name="password" value=""/>
                             <label class="mdl-textfield__label" for="secondName">Contraseña</label>
                         </div>
                     </div>
@@ -139,13 +145,14 @@
 
 
                     <div class="form__action">
-                    <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect button--colored-red">
-                        Cancelar
-                    </button>
+                        <a href="{{route('usuario')}}">
+                            <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect button--colored-red">
+                                Volver
+                            </button>
+                        </a>
 
-                    <button  type="submit" id="submit_button" class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored">
-                        Crear
-                    </button>
+                    <input  type="submit" id="submit_button" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect button--colored-light-blue"
+                    value="Registrar"/>
                     
                 </div>
             </form>

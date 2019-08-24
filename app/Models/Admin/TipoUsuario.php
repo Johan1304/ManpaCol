@@ -4,10 +4,10 @@ namespace App\Models\Admin;
 
 use Illuminate\Database\Eloquent\Model;
 
-class TipoUsuario extends Model
+class Tipousuario extends Model
 {
     protected $table="tipousuario";
-    protected $fillable = ['Descripcion'];  
+    protected $fillable = ['Descripcio'];  
     protected $guarded = ['Id'];
     protected $timestamp = false;
 }

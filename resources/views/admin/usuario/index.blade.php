@@ -9,14 +9,17 @@
         <div class="box-header">
             <h3 class="box-title"> &nbsp&nbspUsuarios</h3>
 
-                <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect button--colored-light-blue" location.href="">
-                    crear
+            <a href="{{route('crearuser')}}">
+                <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect button--colored-teal">
+                    <i class="material-icons">create</i>
+                    Crear
                 </button>
+            </a>
         </div>
         <div class="mdl-card__supporting-text no-padding">
 
-                <table class="mdl-data-table table-hover mdl-js-data-table">
-                        <thead>
+                <table class="mdl-data-table mdl-js-data-table bordered-table  stripped-table">
+                        <thead class="mdl-data-table mdl-js-data-table borderless-table">
                             <tr>
                                 <th class="mdl-data-table__cell--non-numeric">ID</th>
                                 <th class="mdl-data-table__cell--non-numeric">TipoUsuario</th>

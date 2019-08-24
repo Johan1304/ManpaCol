@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Models\Admin\TipoDocumento;
+use App\Models\Admin\Tipousuario;
 
 class TipoDocController extends Controller
 {
@@ -15,8 +16,11 @@ class TipoDocController extends Controller
      */
     public function index()
     {
-        $documentos=TipoDocumento::orderBy('id')->get();
-        return view('admin.usuario.crear', compact('documentos'));
+        $documentos=TipoDocumento::orderBy('id')->get();    
+        $tiposusuario = Tipousuario::orderBy('id')->get();
+        return view('admin.usuario.crear', compact('tiposusuario','documentos'));
+
+
     }
 
     /**

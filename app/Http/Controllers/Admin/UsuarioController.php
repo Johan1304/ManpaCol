@@ -25,7 +25,7 @@ class UsuarioController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function crear()
+    public function create()
     {
         
         return view('admin.usuario.crear');
@@ -41,8 +41,21 @@ class UsuarioController extends Controller
      */
     public function guardar(ValidacionUsuario $request)
     {
-        Usuario::create(request()->all());
-        return redirect('admin/usuario')->with('mensaje','Usuario creado correctamente');
+        $usuario= new Usuario(array(
+            'IdTipoUsuario' => $request->get('IdTipoUsuario'),
+            'Nombres'=> $request->get('Nombres'),
+            'Apellidos'=>$request->get('Apellidos'),
+            'IdTipoDocumento'=>$request->get('IdTipoDocumento'),
+            'NumDoc'=>$request->get('NumDoc'),
+            'Email'=>$request->get('Email'),
+            'usuario'=>$request->get('usuario'),
+            'password'=>$request->get('password')
+
+        ));
+
+        $usuario->save();   
+
+        return redirect('usuario')->with('Se ha creado correctamente');
     }
 
     /**
