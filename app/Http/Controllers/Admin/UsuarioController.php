@@ -16,7 +16,7 @@ class UsuarioController extends Controller
      */
     public function index()
     {
-        $usuarios=Usuario::orderBy('id')->get();
+        $usuarios=Usuario::orderBy('id')->post();
         return view('admin.usuario.index',compact('usuarios'));
     }
 
@@ -41,9 +41,9 @@ class UsuarioController extends Controller
      */
     public function guardar(ValidacionUsuario $request)
     {
-        $usuario= new Usuario(array(
-            'IdTipoUsuario' => $request->get('IdTipoUsuario'),
-            'Nombres'=> $request->get('Nombres'),
+        $usuario=new Usuario(array(
+            'IdTipoUsuario'=> $request->get('IdTipoUsuario'),
+            'Nombres'=>$request->get('Nombres'),
             'Apellidos'=>$request->get('Apellidos'),
             'IdTipoDocumento'=>$request->get('IdTipoDocumento'),
             'NumDoc'=>$request->get('NumDoc'),
@@ -54,8 +54,8 @@ class UsuarioController extends Controller
         ));
 
         $usuario->save();   
-
-        return redirect('usuario')->with('Se ha creado correctamente');
+        
+        return redirect('admin/usuario');
     }
 
     /**

@@ -23,7 +23,8 @@ Route::group(['prefix' => 'admin', 'namespace' => 'Admin'], function () {
 
     /*Rutas usuario*/ 
     Route::get('','AdminController@index');
-    Route::get('usuario', 'UsuarioController@index')->name('usuario');
+    
+    Route::post('usuario', 'UsuarioController@index')->name('usuario');
 
 
     Route::post('usuario/crear','UsuarioController@create')->name('crearuser');
@@ -31,7 +32,7 @@ Route::group(['prefix' => 'admin', 'namespace' => 'Admin'], function () {
     Route::get('usuario/crear', 'TipousuarioController@index')->name('creartipousr');
     Route::get('usuario/crear', 'TipoDocController@index')->name('creartipodoc');
     
-    Route::post('usuario','UsuarioController@guardar')->name('guardar');
+    Route::get('usuario', 'UsuarioController@guardar')->name('guardar');
     Route::get('empleado', 'EmpleadoController@index')->name('empleado');
     Route::get('', 'AdminController@index');
 });

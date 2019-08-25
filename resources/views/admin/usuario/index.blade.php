@@ -34,7 +34,7 @@
                             </tr>
                         </thead>
                         <tbody>
-                            @foreach ($usuarios as $usuario)
+                            @foreach ($usuariossss as $usuario)
                                 <tr>
                                         <td class="mdl-data-table__cell--non-numeric">{{$usuario->Id}}</td>
                                         <td class="mdl-data-table__cell--non-numeric">{{$usuario->IdTipoUsuario}}</td>

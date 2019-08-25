@@ -13,13 +13,13 @@ class UsuarioAdministradorSeeder extends Seeder
     {
         DB::table('usuario')->insert([
             'IdTipoDocumento'=>1,
-            'Nombres' => 'Santiago',
-            'Apellidos' => 'Aldana',
+            'Nombres' => 'Johan',
+            'Apellidos' => 'Barreto',
             'IdTipoUsuario' => 1,    
-            'NumDoc' => '123456789',
+            'NumDoc' => '1000125608',
             'Email' => 'johan@gmail.com',   
-            'usuario' => 'admin123456',
-            'password' => bcrypt('654321admin')
+            'usuario' => 'admin1',
+            'password' => bcrypt('pass123')
         ]);
     }
 }
