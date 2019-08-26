@@ -16,8 +16,9 @@ class TipousuarioController extends Controller
      */
     public function index()
     {
-        $tiposusuario = Tipousuario::orderBy('id')->get();
-        return view('admin.usuario.crear', compact('tiposusuario'));
+        $tiposusuario = Tipousuario::orderBy('Id')->get();
+        $documentos=TipoDocumento::orderBy('Id')->get();
+        return view('admin.usuario.crear', compact('tiposusuario','documentos'));
     }
 
     /**

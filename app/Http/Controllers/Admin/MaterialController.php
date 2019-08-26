@@ -4,10 +4,9 @@ namespace App\Http\Controllers\Admin;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-use App\Models\Admin\TipoDocumento;
-use App\Models\Admin\Tipousuario;
+use App\Models\Admin\Material;
 
-class TipoDocController extends Controller
+class MaterialController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -16,11 +15,7 @@ class TipoDocController extends Controller
      */
     public function index()
     {
-        $documentos=TipoDocumento::orderBy('Id')->get();    
-        
-        return view('admin.usuario.crear', compact('documentos'));
-
-
+        return view('admin.material.index');
     }
 
     /**
@@ -28,9 +23,9 @@ class TipoDocController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function crear()
     {
-        //
+        return view('admin.material.crear');
     }
 
     /**

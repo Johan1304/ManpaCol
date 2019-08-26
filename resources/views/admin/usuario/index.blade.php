@@ -9,7 +9,7 @@
         <div class="box-header">
             <h3 class="box-title"> &nbsp&nbspUsuarios</h3>
 
-            <a href="{{route('crearuser')}}">
+            <a href="{{route('crear_usuario')}}">
                 <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect button--colored-teal">
                     <i class="material-icons">create</i>
                     Crear
@@ -34,7 +34,7 @@
                             </tr>
                         </thead>
                         <tbody>
-                            @foreach ($usuariossss as $usuario)
+                            @foreach ($usuarios as $usuario)
                                 <tr>
                                         <td class="mdl-data-table__cell--non-numeric">{{$usuario->Id}}</td>
                                         <td class="mdl-data-table__cell--non-numeric">{{$usuario->IdTipoUsuario}}</td>

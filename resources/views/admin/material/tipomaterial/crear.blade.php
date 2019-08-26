@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="description" content="A front-end template that helps you build fast, modern mobile web apps.">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>@yield('titulo','Crear usuarios') | ManpaCol</title>
+    <title>@yield('titulo','Crear TipoMaterial') | ManpaCol</title>
 
     <!-- Add to homescreen for Chrome on Android -->
     <meta name="mobile-web-app-capable" content="yes">
@@ -53,7 +53,7 @@
     <main class="mdl-layout__content mdl-color--grey-100">
         <div class="mdl-card mdl-shadow--2dp employer-form" action="">
             <div class="mdl-card__title">
-                <h2>Usuarios</h2>
+                <h2>Tipo Material</h2>
                 <div class="mdl-card__subtitle"></div>
             </div>
 
@@ -66,16 +66,12 @@
                     <div class="mdl-grid">
 
                         <div class="mdl-cell mdl-cell--6-col mdl-textfield mdl-js-textfield mdl-textfield--floating-label getmdl-select">
-                            <input class="mdl-textfield__input" value="1" type="text" id="IdTipoUsuario" name="IdTipoUsuario" readonly tabIndex="-1"/>
+                            <input class="mdl-textfield__input" value="---" type="text" id="IdTipoUsuario" name="IdTipoUsuario" readonly tabIndex="-1"/>
 
-                            <label class="mdl-textfield__label" for="" requerido>TipoUsuario</label>
+                            <label class="mdl-textfield__label" for="" requerido>TipoPresentacion</label>
 
                             <ul class="mdl-menu mdl-menu--bottom-left mdl-js-menu dark_dropdown" for="IdTipoUsuario">
-                                    @foreach ($tiposusuario as $tipo)
-
-                                    <li class="mdl-menu__item">{{$tipo->Id}}</li>
-                                    
-                                    @endforeach    
+                                     
                             </ul>
 
                             <label for="IdTipoUsuario" requerido>
@@ -83,63 +79,22 @@
                             </label>
 
                         </div>
+                        <a href="{{route('usuario')}}">
+                                <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect button--colored-light-blue"
+                                onclick = "this.form.action = '{{route('Tipo_P')}}'">
+                                    Nuevo Tipo de Presentacion
+                                </button>
+                            </a>
                     </div>
 
                     <div class="mdl-grid">
                         <div class="mdl-cell mdl-cell--6-col mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
                             <input class="mdl-textfield__input" type="text" name="Nombres" value=""/>
-                            <label class="mdl-textfield__label" for="firstName" requerido>Nombres</label>
-                        </div>
-
-                        <div class="mdl-cell mdl-cell--6-col mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-                            <input class="mdl-textfield__input" type="text" name="Apellidos" value=""/>
-                            <label class="mdl-textfield__label" for="secondName" requerido>Apellidos</label>
+                            <label class="mdl-textfield__label" for="firstName" requerido>TipoMaterial</label>
                         </div>
                     </div>
 
-                    <div class="mdl-grid">
 
-                        <div class="mdl-cell mdl-cell--6-col mdl-textfield mdl-js-textfield mdl-textfield--floating-label getmdl-select">
-                            <input class="mdl-textfield__input" value="" type="text" id="gender" name="IdTipoDocumento" readonly tabIndex="-1"/>
-
-                            <label class="mdl-textfield__label" for="gender" requerido>TipoDoc</label>
-
-                            <ul class="mdl-menu mdl-menu--bottom-left mdl-js-menu dark_dropdown" for="gender">
-                            @foreach ($documentos as $tipodocumento)
-                            <li class="mdl-menu__item">{{$tipodocumento->Id}}</li>
-                            
-                            @endforeach
-                            </ul>
-                            <label for="gender" requerido>
-                                <i class="mdl-icon-toggle__label material-icons">arrow_drop_down</i>
-                            </label>
-                        </div>
-                        <div class="mdl-cell mdl-cell--6-col mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-                            <input class="mdl-textfield__input" type="text" id="secondName" name="NumDoc" value=""/>
-                            <label class="mdl-textfield__label" for="secondName">Numero de documento</label>
-                        </div>
-                    </div>
-
-                    
-
-                    <div class="mdl-cell mdl-cell--6-col mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-                        <input class="mdl-textfield__input" type="text" id="firstName" name="Email" value=""/>
-                        <label class="mdl-textfield__label" for="firstName">Email</label>
-                    </div>
-
-                    <div class="mdl-grid">
-                        <div class="mdl-cell mdl-cell--6-col mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-                            <input class="mdl-textfield__input" type="text" id="firstName" name="usuario" value=""/>
-                            <label class="mdl-textfield__label" for="firstName">Usuario</label>
-                        </div>
-
-                        <div class="mdl-cell mdl-cell--6-col mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-                            <input class="mdl-textfield__input" type="password" id="secondName" name="password" value=""/>
-                            <label class="mdl-textfield__label" for="secondName">Contraseña</label>
-                        </div>
-                    </div>
-                    
-                    </div>
 
                 
 
@@ -147,17 +102,16 @@
 
                     <div class="form__action">
                         
-
+                    <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect button--colored-red"
+                    onclick = "this.form.action = '{{route('crear_material')}}'">
+                        Volver
+                    </button>
                     <button  type="submit" id="submit_button" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect button--colored-light-blue"
                     >Crear</button>
                     
                 </div>
             </form>
-            <a href="{{route('usuario')}}">
-                <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect button--colored-red">
-                    Volver
-                </button>
-            </a>
+            
         </div>
     </div>
 </main>

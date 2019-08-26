@@ -16,7 +16,7 @@ class UsuarioController extends Controller
      */
     public function index()
     {
-        $usuarios=Usuario::orderBy('id')->post();
+        $usuarios=Usuario::orderBy('Id')->get();
         return view('admin.usuario.index',compact('usuarios'));
     }
 
@@ -25,7 +25,7 @@ class UsuarioController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function crear()
     {
         
         return view('admin.usuario.crear');
@@ -41,21 +41,17 @@ class UsuarioController extends Controller
      */
     public function guardar(ValidacionUsuario $request)
     {
-        $usuario=new Usuario(array(
-            'IdTipoUsuario'=> $request->get('IdTipoUsuario'),
-            'Nombres'=>$request->get('Nombres'),
-            'Apellidos'=>$request->get('Apellidos'),
-            'IdTipoDocumento'=>$request->get('IdTipoDocumento'),
-            'NumDoc'=>$request->get('NumDoc'),
-            'Email'=>$request->get('Email'),
-            'usuario'=>$request->get('usuario'),
-            'password'=>$request->get('password')
-
-        ));
-
-        $usuario->save();   
-        
-        return redirect('admin/usuario');
+        $usuario=new Usuario;
+        $usuario-> IdTipoUsuario = $request->get('IdTipoUsuario');
+        $usuario-> Nombres = $request->get('Nombres');
+        $usuario-> Apellidos = $request->get('Apellidos');
+        $usuario-> IdTipoDocumento = $request->get('IdTipoDocumento');
+        $usuario-> NumDoc = $request->get('NumDoc');
+        $usuario-> Email = $request->get('Email');
+        $usuario-> usuario = $request->get('usuario');
+        $usuario-> password = $request->get('password');
+        $usuario->save();
+        return redirect::to('admin/usuario');
     }
 
     /**
