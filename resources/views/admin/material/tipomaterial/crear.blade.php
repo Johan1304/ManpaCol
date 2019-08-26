@@ -58,20 +58,30 @@
             </div>
 
             <div class="mdl-card__supporting-text">
-            <form action="{{route('guardar')}}" class="form" metodh='POST'>
+            <form action="{{route('guardar_Tpmaterial')}}" class="form" metodh='POST'>
                 @csrf
                 <div class="form__article">
                     <h3>Datos</h3>
 
+
+                    <div class="mdl-grid">
+                            <div class="mdl-cell mdl-cell--6-col mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+                                <input class="mdl-textfield__input" type="text" name="Descripcion" value=""/>
+                                <label class="mdl-textfield__label" for="firstName" requerido>TipoMaterial</label>
+                            </div>
+                        </div>
+
                     <div class="mdl-grid">
 
                         <div class="mdl-cell mdl-cell--6-col mdl-textfield mdl-js-textfield mdl-textfield--floating-label getmdl-select">
-                            <input class="mdl-textfield__input" value="---" type="text" id="IdTipoUsuario" name="IdTipoUsuario" readonly tabIndex="-1"/>
+                            <input class="mdl-textfield__input" value="---" type="text" id="IdTipoUsuario" name="IdTipoPresentacion" readonly tabIndex="-1"/>
 
                             <label class="mdl-textfield__label" for="" requerido>TipoPresentacion</label>
 
                             <ul class="mdl-menu mdl-menu--bottom-left mdl-js-menu dark_dropdown" for="IdTipoUsuario">
-                                     
+                                @foreach ($presentaciones as $presentacion)
+                                <li class="mdl-menu__item">{{$presentacion->Id}}</li>
+                                @endforeach                                     
                             </ul>
 
                             <label for="IdTipoUsuario" requerido>
@@ -87,12 +97,7 @@
                             </a>
                     </div>
 
-                    <div class="mdl-grid">
-                        <div class="mdl-cell mdl-cell--6-col mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-                            <input class="mdl-textfield__input" type="text" name="Nombres" value=""/>
-                            <label class="mdl-textfield__label" for="firstName" requerido>TipoMaterial</label>
-                        </div>
-                    </div>
+                    
 
 
 

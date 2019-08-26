@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use App\Models\Admin\Textura;
 
 class TexturaController extends Controller
 {
@@ -33,9 +34,10 @@ class TexturaController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function guardar(Request $request)
     {
-        //
+        Textura::create($request->all());
+        return redirect('admin/material/crear')->with('Mensaje','Textura creada correctamente');
     }
 
     /**

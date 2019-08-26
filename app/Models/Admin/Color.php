@@ -9,4 +9,5 @@ class Color extends Model
     protected $table = "color";
     protected $fillable = ['Descripcion'];  
     protected $guarded = ['Id'];
+    public $timestamps=false;
 }

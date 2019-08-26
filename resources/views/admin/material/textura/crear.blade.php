@@ -58,7 +58,7 @@
             </div>
 
             <div class="mdl-card__supporting-text">
-            <form action="{{route('guardar')}}" class="form" metodh='POST'>
+            <form action="{{route('guardar_textura')}}" class="form" metodh='POST'>
                 @csrf
                 <div class="form__article">
                     <h3>Datos</h3>
@@ -67,8 +67,8 @@
 
                     <div class="mdl-grid">
                         <div class="mdl-cell mdl-cell--6-col mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-                            <input class="mdl-textfield__input" type="text" name="TipoPresentacion" value=""/>
-                            <label class="mdl-textfield__label" for="firstName" requerido>Textura</label>
+                            <input class="mdl-textfield__input" type="text" name="Descripcion" value=""/>
+                            <label class="mdl-textfield__label"  requerido>Textura</label>
                         </div>
                     </div>
 

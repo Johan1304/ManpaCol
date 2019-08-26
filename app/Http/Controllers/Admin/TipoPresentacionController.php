@@ -4,6 +4,8 @@ namespace App\Http\Controllers\Admin;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use App\Http\Requests\ValidacionPresentacion;
+use App\Models\Admin\TipoPresentacion;
 
 class TipoPresentacionController extends Controller
 {
@@ -14,7 +16,8 @@ class TipoPresentacionController extends Controller
      */
     public function index()
     {
-        //
+        $presentaciones=TipoPresentacion::orderBy('Id')->get();
+        return view('admin.material.tipomaterial.crear', compact('presentaciones'));
     }
 
     /**
@@ -33,9 +36,10 @@ class TipoPresentacionController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function guardar(ValidacionPresentacion $request)
     {
-        //
+        TipoPresentacion::create($request->all());
+        return redirect('admin/material/tipomaterial/crear')->with('Mensaje','TipoPresentacion creado correctamente');
     }
 
     /**
@@ -44,7 +48,7 @@ class TipoPresentacionController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function mostrar($id)
     {
         //
     }
@@ -55,7 +59,7 @@ class TipoPresentacionController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function editar($id)
     {
         //
     }
@@ -67,7 +71,7 @@ class TipoPresentacionController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function actualizar(Request $request, $id)
     {
         //
     }
@@ -78,7 +82,7 @@ class TipoPresentacionController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function eliminar($id)
     {
         //
     }

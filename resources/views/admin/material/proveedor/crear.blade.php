@@ -59,7 +59,7 @@
             </div>
 
             <div class="mdl-card__supporting-text">
-            <form action="" class="form" metodh='POST'>
+            <form action="{{route('guardar_proveedor')}}" class="form" metodh='POST'>
                 @csrf
                 <div class="form__article">
                     <h3>Datos</h3>

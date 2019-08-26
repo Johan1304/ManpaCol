@@ -9,4 +9,5 @@ class TipoPresentacion extends Model
     protected $table = "tipopresentacion";
     protected $fillable = ['Descripcion','Cantidad','UnidadMedida'];  
     protected $guarded = ['Id'];
+    public $timestamps=false;
 }

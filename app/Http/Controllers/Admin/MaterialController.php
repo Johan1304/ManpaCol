@@ -15,7 +15,8 @@ class MaterialController extends Controller
      */
     public function index()
     {
-        return view('admin.material.index');
+        $materiales=Material::orderBy('Id')->get();
+        return view('admin.material.index', compact('materiales'));
     }
 
     /**
@@ -34,9 +35,10 @@ class MaterialController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function guardar(Request $request)
     {
-        //
+        Material::create($request->all());
+        return redirect('admin.material.index');
     }
 
     /**

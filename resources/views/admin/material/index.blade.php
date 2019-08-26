@@ -8,7 +8,7 @@
 <div class="mdl-card mdl-shadow--2dp">
         <div class="box-header">
             <h3 class="box-title"> &nbsp&nbspMaterial</h3>
-            <a href="{{route('crear_material')}}">
+            <a href="">
             <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect button--colored-light-blue"
             >
                     <i class="material-icons">create</i>
@@ -31,16 +31,18 @@
                             </tr>
                         </thead>
                         <tbody>
-                           
-                                <tr>
-                                        <td class="mdl-data-table__cell--non-numeric"></td>
-                                        <td class="mdl-data-table__cell--non-numeric"></td>
-                                        <td class="mdl-data-table__cell--non-numeric"></td>
-                                        <td class="mdl-data-table__cell--non-numeric"></td>
-                                        <td class="mdl-data-table__cell--non-numeric"></td>
-                                        <td class="mdl-data-table__cell--non-numeric"></td>
-                                        
-                                </tr>
+                           @foreach ($materiales as $material)
+                           <tr>
+                                <td class="mdl-data-table__cell--non-numeric">{{$material->Id}}</td>
+                                <td class="mdl-data-table__cell--non-numeric">{{$material->IdTipoMaterial}}</td>
+                                <td class="mdl-data-table__cell--non-numeric">{{$material->Existencias}}</td>
+                                <td class="mdl-data-table__cell--non-numeric">{{$material->Color}}</td>
+                                <td class="mdl-data-table__cell--non-numeric">{{$material->IdTextura}}</td>
+                                <td class="mdl-data-table__cell--non-numeric">{{$material->IdProveedor}}</td>
+                                
+                        </tr>
+                           @endforeach
+                                
                            
                         </tbody>
                     </table>

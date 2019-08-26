@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use App\Models\Admin\Color;
 
 class ColorController extends Controller
 {
@@ -14,7 +15,8 @@ class ColorController extends Controller
      */
     public function index()
     {
-        //
+        
+        return view('admin.material.crear', compact('colores'));
     }
 
     /**
@@ -25,6 +27,7 @@ class ColorController extends Controller
     public function crear()
     {
         return view('admin.material.colores.crear');
+
     }
 
     /**
@@ -33,9 +36,10 @@ class ColorController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function guardar(Request $request)
     {
-        //
+        Color::create($request->all());
+        return redirect('admin/material/crear')->with('Mensaje','Color creado correctamente');
     }
 
     /**

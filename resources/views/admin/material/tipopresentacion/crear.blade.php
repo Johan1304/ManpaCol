@@ -58,27 +58,36 @@
             </div>
 
             <div class="mdl-card__supporting-text">
-            <form action="{{route('guardar')}}" class="form" metodh='POST'>
+            <form action="{{route('guardar_presentacion')}}" id="form-general" class="form" metodh='POST'>
                 @csrf
                 <div class="form__article">
                     <h3>Datos</h3>
 
-                    
+                    @if ($errors->any())
+                        <div class="alert" alert-danger alert-dismissible>
+                            @foreach ($errors->all() as $error)
+                                <span >{{$error}}<br></span>
+                            @endforeach
+                        </div>
+                            
+                        @endif
 
                     <div class="mdl-grid">
                         <div class="mdl-cell mdl-cell--6-col mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-                            <input class="mdl-textfield__input" type="text" name="Descripcion" value=""/>
+                            <div class="col-lg-8">
+                              <input class="mdl-textfield__input" type="text" name="Descripcion" value="{{old('Descripcion')}}" />
+                            </div>
                             <label class="mdl-textfield__label" for="firstName" requerido>Tipo de presentacion</label>
                         </div>
                     </div>
 
                     <div class="mdl-grid">
                         <div class="mdl-cell mdl-cell--6-col mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-                            <input class="mdl-textfield__input" type="text" name="Cantidad" value=""/>
+                            <input class="mdl-textfield__input" type="text" name="Cantidad" value="{{old('Cantidad')}}" />
                             <label class="mdl-textfield__label" for="firstName" requerido>Cantidad</label>
                         </div>
                         <div class="mdl-cell mdl-cell--6-col mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-                                <input class="mdl-textfield__input" type="text" name="UnidadMedida" value=""/>
+                                <input class="mdl-textfield__input" type="text" name="UnidadMedida" value="{{old('UnidadMedida')}}" />
                                 <label class="mdl-textfield__label" for="firstName" requerido>Unidad de Medida</label>
                         </div>
                     </div>

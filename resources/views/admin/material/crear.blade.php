@@ -58,7 +58,7 @@
             </div>
 
             <div class="mdl-card__supporting-text">
-            <form action="" class="form" metodh='POST'>
+            <form action="{{route('guardar_material')}}" class="form" metodh='POST'>
                 @csrf
                 <div class="form__article">
                     <h3>Datos</h3>
@@ -66,12 +66,14 @@
                     <div class="mdl-grid">
 
                         <div class="mdl-cell mdl-cell--6-col mdl-textfield mdl-js-textfield mdl-textfield--floating-label getmdl-select">
-                            <input class="mdl-textfield__input" value="" type="text" id="IdTipoUsuario" name="IdTipoUsuario" readonly tabIndex="-1"/>
+                            <input class="mdl-textfield__input" value="" type="text" id="IdTipoUsuario" name="IdTipoMaterial" readonly tabIndex="-1"/>
 
                             <label class="mdl-textfield__label" for="" requerido>TipoMaterial</label>
 
                             <ul class="mdl-menu mdl-menu--bottom-left mdl-js-menu dark_dropdown" for="IdTipoUsuario">
-                                     
+                                @foreach ($tiposM as $tipo)
+                                <li class="mdl-menu__item">{{$tipo->Id}}</li>
+                                @endforeach                                     
                             </ul>
 
                             <label for="IdTipoUsuario" requerido>
@@ -89,17 +91,19 @@
 
                     <div class="mdl-grid">
                         <div class="mdl-cell mdl-cell--6-col mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-                            <input class="mdl-textfield__input" type="text" name="Nombres" value=""/>
+                            <input class="mdl-textfield__input" type="text" name="Existencias" value=""/>
                             <label class="mdl-textfield__label" for="firstName" requerido>Existencias</label>
                         </div>
 
                         <div class="mdl-cell mdl-cell--6-col mdl-textfield mdl-js-textfield mdl-textfield--floating-label getmdl-select">
                                 <input class="mdl-textfield__input" value="" type="text" id="color" name="Color" readonly tabIndex="-1"/>
     
-                                <label class="mdl-textfield__label" for="gender" requerido>Color</label>
+                                <label class="mdl-textfield__label" for="color" requerido>Color</label>
     
-                                <ul class="mdl-menu mdl-menu--bottom-left mdl-js-menu dark_dropdown" for="gender">
-                                
+                                <ul class="mdl-menu mdl-menu--bottom-left mdl-js-menu dark_dropdown" for="color">
+                                        @foreach ($colores as $color)
+                                        <li class="mdl-menu__item">{{$color->Id}}</li>
+                                        @endforeach
                                 </ul>
                                 <label for="color" requerido>
                                     <i class="mdl-icon-toggle__label material-icons">arrow_drop_down</i>
@@ -114,14 +118,16 @@
                     <div class="mdl-grid">
 
                         <div class="mdl-cell mdl-cell--6-col mdl-textfield mdl-js-textfield mdl-textfield--floating-label getmdl-select">
-                            <input class="mdl-textfield__input" value="" type="text" id="gender" name="IdTextura" readonly tabIndex="-1"/>
+                            <input class="mdl-textfield__input" value="" type="text" id="textura" name="IdTextura" readonly tabIndex="-1"/>
 
-                            <label class="mdl-textfield__label" for="gender" requerido>Textura</label>
+                            <label class="mdl-textfield__label" for="textura" requerido>Textura</label>
 
-                            <ul class="mdl-menu mdl-menu--bottom-left mdl-js-menu dark_dropdown" for="gender">
-                            
+                            <ul class="mdl-menu mdl-menu--bottom-left mdl-js-menu dark_dropdown" for="textura">
+                                    @foreach ($texturas as $textura)
+                                    <li class="mdl-menu__item">{{$textura->Id}}</li>
+                                    @endforeach
                             </ul>
-                            <label for="gender" requerido>
+                            <label for="textura" requerido>
                                 <i class="mdl-icon-toggle__label material-icons">arrow_drop_down</i>
                             </label>
                         </div>
@@ -139,7 +145,9 @@
                             <label class="mdl-textfield__label" for="gender" requerido>Proveedor</label>
     
                             <ul class="mdl-menu mdl-menu--bottom-left mdl-js-menu dark_dropdown" for="gender">
-                                
+                                    @foreach ($provs as $prov)
+                                    <li class="mdl-menu__item">{{$prov->Id}}</li>
+                                    @endforeach
                             </ul>
                             <label for="gender" requerido>
                                 <i class="mdl-icon-toggle__label material-icons">arrow_drop_down</i>
@@ -159,7 +167,7 @@
                     <div class="form__action">
                         
                     <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect button--colored-red"
-                    onclick = "this.form.action = '{{route('material')}}'">
+                    onclick = "this.form.action = ''">
                             Volver
                     </button>
                     <button  type="submit" id="submit_button" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect button--colored-light-blue"

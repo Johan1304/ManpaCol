@@ -4,6 +4,11 @@ namespace App\Http\Controllers\Admin;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use App\Models\Admin\Color;
+use App\Models\Admin\Material;
+use App\Models\Admin\Proveedor;
+use App\Models\Admin\Textura;
+use App\Models\Admin\TipoMaterial;
 
 class TipoMaterialController extends Controller
 {
@@ -14,7 +19,11 @@ class TipoMaterialController extends Controller
      */
     public function index()
     {
-        
+        $tiposM=TipoMaterial::orderBy('Id')->get();
+        $colores=Color::orderBy('Id')->get();
+        $texturas=Textura::orderBy('Id')->get();
+        $provs=Proveedor::orderBy('Id')->get();
+        return view('admin.material.crear', compact('tiposM','colores','texturas','provs'));
     }
 
     /**
@@ -33,9 +42,10 @@ class TipoMaterialController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function guardar(Request $request)
     {
-        //
+        TipoMaterial::create($request->all());
+        return redirect('admin/material/crear')->with('Mensaje','TipoMaterial creado correctamente');
     }
 
     /**
