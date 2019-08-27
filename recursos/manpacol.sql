@@ -588,9 +588,8 @@ ALTER TABLE `tipomaterial`
 --
 -- Filtros para la tabla `usuario`
 --
-ALTER TABLE `usuario`
-  ADD CONSTRAINT `usuario_ibfk_1` FOREIGN KEY (`IdTipoUsuario`) REFERENCES `tipousuario` (`Id`),
-  ADD CONSTRAINT `usuario_ibfk_2` FOREIGN KEY (`IdTipoDocumento`) REFERENCES `tipodocumento` (`Id`);
+ALTER TABLE `material`
+  ADD CONSTRAINT `color_fk` FOREIGN KEY (`Color`) REFERENCES `color` (`Id`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

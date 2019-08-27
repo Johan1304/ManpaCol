@@ -7,14 +7,16 @@
 
 <div class="mdl-card mdl-shadow--2dp">
         <div class="box-header">
+            @include('includes.mensaje')
             <h3 class="box-title"> &nbsp&nbspUsuarios</h3>
 
-            <a href="{{route('crear_usuario')}}">
-                <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect button--colored-teal">
+            
+                <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect button--colored-teal"
+                onclick = "this.form.action = '{{route('crear_usuario')}}'">
                     <i class="material-icons">create</i>
                     Crear
                 </button>
-            </a>
+            
         </div>
         <div class="mdl-card__supporting-text no-padding">
 
@@ -53,6 +55,15 @@
                                             <span class="label label--mini background-color--secondary">{{$usuario->Estado}}</span>
                                             @endif
                                              
+                                        </td>
+
+                                        <td>
+                                            <a href= "{{route('editar_usuario', ['Id'=>$usuario->Id])}}" >
+                                                <button class="mdl-button mdl-js-button mdl-button--icon mdl-button--raised mdl-js-ripple-effect button--colored-orange"
+                                                >
+                                                        <i class="material-icons">create</i>
+                                                </button>
+                                            </a>
                                         </td>
                                 </tr>
                             @endforeach

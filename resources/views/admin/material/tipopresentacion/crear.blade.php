@@ -75,7 +75,7 @@
                     <div class="mdl-grid">
                         <div class="mdl-cell mdl-cell--6-col mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
                             <div class="col-lg-8">
-                              <input class="mdl-textfield__input" type="text" name="Descripcion" value="{{old('Descripcion')}}" />
+                              <input class="mdl-textfield__input" type="text" name="Descripcion" value="{{old('Descripcion')}}" pattern="[a-z]{1,45}"/>
                             </div>
                             <label class="mdl-textfield__label" for="firstName" requerido>Tipo de presentacion</label>
                         </div>
@@ -83,11 +83,11 @@
 
                     <div class="mdl-grid">
                         <div class="mdl-cell mdl-cell--6-col mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-                            <input class="mdl-textfield__input" type="text" name="Cantidad" value="{{old('Cantidad')}}" />
+                            <input class="mdl-textfield__input" type="text" name="Cantidad" value="{{old('Cantidad')}}" pattern="[0-9]{1,3}"/>
                             <label class="mdl-textfield__label" for="firstName" requerido>Cantidad</label>
                         </div>
                         <div class="mdl-cell mdl-cell--6-col mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-                                <input class="mdl-textfield__input" type="text" name="UnidadMedida" value="{{old('UnidadMedida')}}" />
+                                <input class="mdl-textfield__input" type="text" name="UnidadMedida" value="{{old('UnidadMedida')}}" pattern="[a-z]{1,2}"/>
                                 <label class="mdl-textfield__label" for="firstName" requerido>Unidad de Medida</label>
                         </div>
                     </div>

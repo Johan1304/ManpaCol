@@ -15,6 +15,7 @@ class ColorController extends Controller
      */
     public function index()
     {
+        $colores=Color::orderBy('Id')->get();
         
         return view('admin.material.crear', compact('colores'));
     }
