@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: localhost:3306
--- Tiempo de generación: 22-08-2019 a las 16:45:33
+-- Tiempo de generación: 27-08-2019 a las 12:37:55
 -- Versión del servidor: 5.7.24
 -- Versión de PHP: 7.2.11
 
@@ -21,6 +21,17 @@ SET time_zone = "+00:00";
 --
 -- Base de datos: `manpacol`
 --
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `color`
+--
+
+CREATE TABLE `color` (
+  `Id` int(11) NOT NULL,
+  `Descripcion` varchar(50) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
 
@@ -344,11 +355,21 @@ CREATE TABLE `usuario` (
 -- Volcado de datos para la tabla `usuario`
 --
 
-
+INSERT INTO `usuario` (`Id`, `IdTipoUsuario`, `Nombres`, `Apellidos`, `IdTipoDocumento`, `NumDoc`, `Email`, `usuario`, `password`, `Estado`) VALUES
+(1, 1, 'Johan', 'Barreto', 1, '1000125608', 'jsbarreto80@misena.edu.co', 'johan', '123456', 'Activo'),
+(2, 2, 'Brayan', 'Suarez', 1, '1001342271', 'brayan@gmail.com', 'brayanrpt', '12345', 'Activo'),
+(3, 1, NULL, NULL, 1, NULL, NULL, 'admin', '$2y$10$APyCozc6AAg5m5IOAqzCP.U3AbdzNrFS762qTcrk5/mF6KniKim6C', 'Activo'),
+(4, 1, 'Santiago', 'Aldana', 1, '123456789', 'johan@gmail.com', 'admin123456', '$2y$10$wWqsCBcGMH2trQLLYV/ihu4KbIBJgGgFV0gGrsnCEIbuIIFt5TC9C', 'Inactivo');
 
 --
 -- Índices para tablas volcadas
 --
+
+--
+-- Indices de la tabla `color`
+--
+ALTER TABLE `color`
+  ADD PRIMARY KEY (`Id`);
 
 --
 -- Indices de la tabla `detallesentrada`
@@ -455,6 +476,12 @@ ALTER TABLE `usuario`
 --
 -- AUTO_INCREMENT de las tablas volcadas
 --
+
+--
+-- AUTO_INCREMENT de la tabla `color`
+--
+ALTER TABLE `color`
+  MODIFY `Id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT de la tabla `empleado`
@@ -588,8 +615,9 @@ ALTER TABLE `tipomaterial`
 --
 -- Filtros para la tabla `usuario`
 --
-ALTER TABLE `material`
-  ADD CONSTRAINT `color_fk` FOREIGN KEY (`Color`) REFERENCES `color` (`Id`);
+ALTER TABLE `usuario`
+  ADD CONSTRAINT `usuario_ibfk_1` FOREIGN KEY (`IdTipoUsuario`) REFERENCES `tipousuario` (`Id`),
+  ADD CONSTRAINT `usuario_ibfk_2` FOREIGN KEY (`IdTipoDocumento`) REFERENCES `tipodocumento` (`Id`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
