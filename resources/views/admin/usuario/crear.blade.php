@@ -45,7 +45,7 @@
 
 <!-- ASIDE -->
 
-@include ("theme/$theme/aside")
+@include ("theme/$theme/asideAdm")
 
 
 
@@ -140,7 +140,7 @@
                     <div class="form__action">
                             
                        <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect button--colored-red"
-                       onclick = "this.form.action = ''">
+                       onclick = "this.form.action = 'index'">
                             Volver
                         </button>
 

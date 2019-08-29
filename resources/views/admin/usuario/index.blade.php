@@ -2,6 +2,11 @@
 @section('titulo')
     Usuarios
 @endsection
+
+@section('menu')
+@include('theme/admin/asideAdm')
+@endsection
+
 @section('contenido')
 
 
@@ -12,7 +17,7 @@
 
             
                 <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect button--colored-teal"
-                onclick = "this.form.action = '{{route('crear_usuario')}}'">
+                onclick = "this.form.action = '../usuario/crear'">
                     <i class="material-icons">create</i>
                     Crear
                 </button>

@@ -46,7 +46,7 @@
             @include ("theme/$theme/header")
 
             <!-- Aside -->
-            @include ("theme/$theme/aside")
+            @yield('menu')
 
             <!--Content-->
             <main class="mdl-layout__content">

@@ -22,16 +22,16 @@ Route::get('seguridad/logout','Seguridad\LoginController@logout')->name('logout'
 Route::group(['prefix' => 'admin', 'namespace' => 'Admin'], function () {
 
     /*Usuario*/
-    Route::get('','AdminController@index');
+    Route::get('/','AdminController@index');
     Route::get('usuario', 'UsuarioController@index')->name('usuario');
     Route::get('', 'UsuarioController@crear')->name('crear_usuario');
-    Route::get('usuario', 'UsuarioController@guardar')->name('guardar');
+    Route::post('usuario', 'UsuarioController@guardar')->name('guardar');
     Route::get('usuario/{Id}/editar', 'UsuarioController@editar')->name('editar_usuario');    
     Route::put('usuario/{Id}','UsuarioController@actualizar')->name('actualizar_usuario');
 
 
-    Route::get('usuario/crear', 'TipoDocController@index')->name('creartipodoc');
-    Route::get('','TipousuarioController@index')->name('creartipou');
+    Route::get('', 'TipoDocController@index')->name('creartipodoc');
+    Route::get('usuario/crear','TipousuarioController@index')->name('creartipou');
     /*Fin usuario*/
 
     /*Material*/
