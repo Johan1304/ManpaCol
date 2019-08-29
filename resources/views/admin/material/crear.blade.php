@@ -83,7 +83,7 @@
                         </div>
 
                                 <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect button--colored-light-blue" .
-                                onclick = "this.form.action = '{{route('Tipo_M')}}'">
+                                onclick = "this.form.action = 'tipomaterial/crear'">
                                     Nuevo Tipo de Material
                                 </button>
 
@@ -167,7 +167,7 @@
                     <div class="form__action">
                         
                     <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect button--colored-red"
-                    onclick = "this.form.action = ''">
+                    onclick = "this.form.action = '../material/'">
                             Volver
                     </button>
                     <button  type="submit" id="submit_button" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect button--colored-light-blue"

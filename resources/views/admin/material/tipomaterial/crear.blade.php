@@ -89,12 +89,11 @@
                             </label>
 
                         </div>
-                        <a href="{{route('usuario')}}">
+                        
                                 <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect button--colored-light-blue"
                                 onclick = "this.form.action = '{{route('Tipo_P')}}'">
                                     Nuevo Tipo de Presentacion
-                                </button>
-                            </a>
+                                
                     </div>
 
                     
@@ -108,7 +107,7 @@
                     <div class="form__action">
                         
                     <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect button--colored-red"
-                    onclick = "this.form.action = '{{route('crear_material')}}'">
+                    onclick = "this.form.action = '../crear'">
                         Volver
                     </button>
                     <button  type="submit" id="submit_button" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect button--colored-light-blue"
