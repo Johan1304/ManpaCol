@@ -44,7 +44,7 @@
 @include ("theme/$theme/header ")
 
 <!-- ASIDE -->
-
+@include('theme/admin/asideAdm')
 
 
 

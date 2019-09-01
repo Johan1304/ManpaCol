@@ -28,8 +28,22 @@ class ValidacionUsuario extends FormRequest
             'Apellidos' => 'required|max:50',
             'NumDoc' => 'required|max:14',
             'Email' => 'required|max:60',
-            'usuario'=>'required|max:50|unique:usuario,usuario' . $this->route('id')
+            'usuario'=>'required|max:50|unique:usuario,usuario' . $this->route('id'),
+            'password'=>'required|max:50'
 
+        ];
+    }
+
+
+    public function messages()
+    {
+        return[
+            'Nombres.required' => 'El campo Nombre es requerido',
+            'Apellidos.required' => 'El campo Apellido es requerido',
+            'NumDoc.required' => 'El campo Numer Documento es requerido',
+            'Email.required' => 'El campo Email es requerido',
+            'usuario.required' => 'El campo usuario es requerido',
+            'password.required' => 'El campo password es requerido'
         ];
     }
 }

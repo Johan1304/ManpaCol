@@ -41,11 +41,11 @@
 
     <div class="mdl-layout mdl-js-layout mdl-layout--fixed-drawer mdl-layout--fixed-header">
 <!-- HEADER -->
-@include ("theme/$theme/header ")
+@include('theme/admin/asideAdm')
 
 <!-- ASIDE -->
 
-@include ("theme/$theme/aside")
+@include('theme/admin/asideAdm')
 
 
 

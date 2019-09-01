@@ -45,7 +45,7 @@
 
 <!-- ASIDE -->
 
-@include ("theme/$theme/aside")
+@include('theme/admin/asideAdm')
 
 
 

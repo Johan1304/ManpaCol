@@ -2,13 +2,18 @@
 @section('titulo')
     Material
 @endsection
+@section('menu')
+@include('theme/admin/asideAdm')
+    
+@endsection
+
 @section('contenido')
 
 
 <div class="mdl-card mdl-shadow--2dp">
         <div class="box-header">
             <h3 class="box-title"> &nbsp&nbspMaterial</h3>
-            <a href="material/crear>
+            <a href="material/crear">
             <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect button--colored-light-blue"
             >
                     <i class="material-icons">create</i>

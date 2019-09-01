@@ -10,4 +10,5 @@ class Usuario extends Model
     protected $fillable = ['IdTipoUsuario','Nombres','Apellidos','IdTipoDocumento','NumDoc','Email','usuario','password'];
     protected $guarded = ['Id'];
     
+    
 }

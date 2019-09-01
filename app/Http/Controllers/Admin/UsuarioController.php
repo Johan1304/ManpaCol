@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\ValidacionUsuario;
 use App\Models\Admin\Usuario;
+use Illuminate\Support\Facades\Crypt;
 
 class UsuarioController extends Controller
 {
@@ -41,7 +42,17 @@ class UsuarioController extends Controller
      */
     public function guardar(ValidacionUsuario $request)
     {
-        Usuario::create($request->all());
+        $usuario= new Usuario(array(
+            'IdTipoUsuario' => $request->get('IdTipoUsuario'),
+            'Nombres'=> $request->get('Nombres'),
+            'Apellidos'=>$request->get('Apellidos'),
+            'IdTipoDocumento'=>$request->get('IdTipoDocumento'),
+            'NumDoc'=>$request->get('NumDoc'),
+            'Email'=>$request->get('Email'),
+            'usuario'=>$request->get('usuario'),
+            'password'=>Crypt::encrypt($request->password)
+        ));
+        $usuario->save();   
         return redirect('admin/usuario')->with('mensaje','TipoMaterial creado correctamente');
     }
 

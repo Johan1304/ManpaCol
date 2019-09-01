@@ -21,8 +21,10 @@ Route::get('seguridad/logout','Seguridad\LoginController@logout')->name('logout'
 
 Route::group(['prefix' => 'admin', 'namespace' => 'Admin'], function () {
 
-    /*Usuario*/
+    
     Route::get('/','AdminController@index');
+
+    /*Usuario*/
     Route::get('usuario', 'UsuarioController@index')->name('usuario');
     Route::get('', 'UsuarioController@crear')->name('crear_usuario');
     Route::post('usuario', 'UsuarioController@guardar')->name('guardar');

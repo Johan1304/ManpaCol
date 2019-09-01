@@ -2,6 +2,9 @@
 @section('titulo')
     Empleados
 @endsection
+@section('menu')
+@include('theme/admin/asideAdm')
+@endsection
 @section('contenido')
 
 

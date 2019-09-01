@@ -51,7 +51,7 @@
 
 
     <main class="mdl-layout__content mdl-color--grey-100">
-        <div class="mdl-card mdl-shadow--2dp employer-form" action="POST">
+        <div class="mdl-card mdl-shadow--2dp employer-form" action="">
             <div class="mdl-card__title">
                 <h2>Editar Usuario</h2>
                 <div class="mdl-card__subtitle"></div>
@@ -124,7 +124,7 @@
                         </div>
     
                         <div class="mdl-cell mdl-cell--6-col mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-                            <input class="mdl-textfield__input" type="password" id="pass" name="password" value="{{old('password', $data->password ?? '')}}" pattern="[A-Za-z0-9]{1,45}"/>
+                            <input class="mdl-textfield__input" type="password" id="pass" name="password" value="{{old('password', $data->password ?? '')}}" pattern="[A-Za-z0-9]{1,200}"/>
                             <label class="mdl-textfield__label" for="pass">Contraseña</label>
                         </div>
                     </div>
