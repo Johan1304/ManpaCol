@@ -29,7 +29,7 @@ Route::group(['prefix' => 'admin', 'namespace' => 'Admin'], function () {
     Route::get('', 'UsuarioController@crear')->name('crear_usuario');
     Route::post('usuario', 'UsuarioController@guardar')->name('guardar');
     Route::get('usuario/{Id}/editar', 'UsuarioController@editar')->name('editar_usuario');    
-    Route::put('usuario/{Id}','UsuarioController@actualizar')->name('actualizar_usuario');
+    Route::put('usuario/{Id}', 'UsuarioController@actualizar')->name('actualizar_usuario');
 
 
     Route::get('', 'TipoDocController@index')->name('creartipodoc');

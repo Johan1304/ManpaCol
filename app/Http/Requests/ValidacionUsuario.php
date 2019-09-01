@@ -27,9 +27,9 @@ class ValidacionUsuario extends FormRequest
             'Nombres' => 'required|max:50',
             'Apellidos' => 'required|max:50',
             'NumDoc' => 'required|max:14',
-            'Email' => 'required|max:60',
+            'Email' => 'required|max:60'. $this->route('id'),
             'usuario'=>'required|max:50|unique:usuario,usuario' . $this->route('id'),
-            'password'=>'required|max:50'
+            'password'=>'required|max:500'
 
         ];
     }

@@ -58,7 +58,7 @@
             </div>
 
             <div class="mdl-card__supporting-text">
-            <form action="{{route('guardar')}}" id="form-general" class="form" metodh='POST'>
+            <form action="{{route('guardar')}}" id="form-general" class="form" method='POST'>
                 @csrf
                 <div class="mdl-grid">
 

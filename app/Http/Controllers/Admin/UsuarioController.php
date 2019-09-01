@@ -53,7 +53,7 @@ class UsuarioController extends Controller
             'password'=>Crypt::encrypt($request->password)
         ));
         $usuario->save();   
-        return redirect('admin/usuario')->with('mensaje','TipoMaterial creado correctamente');
+        return redirect(route('usuario'))->with('mensaje','TipoMaterial creado correctamente');
     }
 
     /**
@@ -89,7 +89,7 @@ class UsuarioController extends Controller
     public function actualizar (ValidacionUsuario $request, $id)
     {
         Usuario::findOrFail($id)->update($request->all());
-        return redirect('admin/usuario')->with('mensaje','Usuario actualizado correctamente');  
+        return redirect(route('usuario'))->with('mensaje','Usuario actualizado correctamente');  
 
     }
 

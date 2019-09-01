@@ -58,7 +58,7 @@
             </div>
 
             <div class="mdl-card__supporting-text">
-            <form action="{{route('actualizar_usuario',['Id'=>$data->Id])}}" id="form-general" class="form" metodh='POST'>
+            <form action="{{route('actualizar_usuario',['Id'=>$data->Id])}}" id="form-general" class="form" method='POST'>
                 @csrf @method("put")
                 <div class="mdl-grid">
 
