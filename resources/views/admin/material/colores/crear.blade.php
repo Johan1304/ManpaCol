@@ -41,11 +41,13 @@
 
     <div class="mdl-layout mdl-js-layout mdl-layout--fixed-drawer mdl-layout--fixed-header">
 <!-- HEADER -->
-@include('theme/admin/asideAdm')
+@include('theme/admin/header')
 
 <!-- ASIDE -->
 
+
 @include('theme/admin/asideAdm')
+
 
 
 
@@ -53,7 +55,7 @@
     <main class="mdl-layout__content mdl-color--grey-100">
         <div class="mdl-card mdl-shadow--2dp employer-form" action="">
             <div class="mdl-card__title">
-                <h2>Crear Textura</h2>
+                <h2>Crear Color</h2>
                 <div class="mdl-card__subtitle"></div>
             </div>
 

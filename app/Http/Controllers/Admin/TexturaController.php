@@ -15,7 +15,9 @@ class TexturaController extends Controller
      */
     public function index()
     {
-        //
+        $texturas=Textura::orderBy('Id')->get();
+        return view('admin.material.textura.index', compact('texturas'));
+
     }
 
     /**

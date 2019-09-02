@@ -15,26 +15,31 @@
                             <i class="material-icons">keyboard_arrow_down</i>
                         </a>
                         <div class="mdl-navigation">
-                                <a class="mdl-navigation__link" href="ui-buttons.html">
+                                <a class="mdl-navigation__link" href="{{route('material')}}">
                                     <i class="material-icons">pages</i>
                                     Materiales    
                                 </a>
-                                <a class="mdl-navigation__link" href="ui-cards.html">
+                                <a class="mdl-navigation__link" href="">
                                     <i class="material-icons">sort</i>
                                     Tipos de Material
                                 </a>
-                                <a class="mdl-navigation__link" href="ui-colors.html">
+                                <a class="mdl-navigation__link" href="">
                                     <i class="material-icons">sort</i>
                                     Tipos de Presentacion
                                 </a>
-                                <a class="mdl-navigation__link" href="ui-form-components.html">
+                                <a class="mdl-navigation__link" href="{{route('textura')}}">
                                     <i class="material-icons">bubble_chart</i>
                                     Textura
                                 </a>
-                                <a class="mdl-navigation__link" href="ui-icons.html">
+                                <a class="mdl-navigation__link" href="{{route('color')}}">
+                                    <i class="material-icons">format_color_fill</i>
+                                    Color
+                                </a>
+                                <a class="mdl-navigation__link" href="{{route('proveedor')}}">
                                     <i class="material-icons">domain</i>
                                     Proveedor
                                 </a>
+                                
                                 
                             </div>
                     </div>

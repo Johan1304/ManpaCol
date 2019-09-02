@@ -51,14 +51,16 @@ Route::group(['prefix' => 'admin', 'namespace' => 'Admin'], function () {
     Route::post('material/tipopresentacion', 'TipoPresentacionController@guardar')->name('guardar_presentacion');
     
 
+    Route::get('material/textura','TexturaController@index')->name('textura');
     Route::get('material/textura/crear','TexturaController@crear')->name('textura_crear');
     Route::post('material/textura','TexturaController@guardar')->name('guardar_textura');
 
-    Route::get('material/{$colores}','ColorController@index')->name('color');
+    Route::get('material/colores','ColorController@index')->name('color');
     Route::get('material/colores/crear','ColorController@crear')->name('color_crear');
     Route::post('material/colores','ColorController@guardar')->name('guardar_color');
 
 
+    Route::get('material/proveedor','ProveedorController@index')->name('proveedor');
     Route::get('material/proveedor/crear','ProveedorController@crear')->name('proveedor_crear');
     Route::post('material/proveedor','ProveedorController@guardar')->name('guardar_proveedor');
     /*Fin Material*/

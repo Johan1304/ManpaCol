@@ -15,7 +15,8 @@ class ProveedorController extends Controller
      */
     public function index()
     {
-        //
+        $provedores=Proveedor::orderBy('Id')->get();
+        return view('admin.material.proveedor.index', compact('provedores'));
     }
 
     /**
