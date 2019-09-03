@@ -58,15 +58,9 @@
                                         <td class="mdl-data-table__cell--non-numeric">
 
                                             @if ($usuario['Estado'] =='1')
-                                            <label class="mdl-switch mdl-js-switch mdl-js-ripple-effect switch--colored-green" for="switch-1">
-                                                <input type="checkbox" id="switch-1" class="mdl-switch__input" checked>
-                                                <span class="mdl-switch__label"></span>
-                                            </label>
+                                            <span class="label label--mini background-color--primary">Read</span> 
                                             @else
-                                            <label class="mdl-switch mdl-js-switch mdl-js-ripple-effect switch--colored-green" for="switch-1">
-                                                <input type="checkbox" id="switch-1" class="mdl-switch__input" >
-                                                <span class="mdl-switch__label"></span>
-                                            </label>
+                                            <span class="label label--mini background-color--secondary">Unread</span>
                                             @endif
                                              
                                         </td>

@@ -129,6 +129,38 @@
                         </div>
                     </div>
                     
+                    <div class="mdl-grid">
+
+                        <div class="mdl-cell mdl-cell--6-col mdl-textfield mdl-js-textfield mdl-textfield--floating-label getmdl-select">
+                            <input class="mdl-textfield__input" value="1" type="text" id="IdTipoUsuario" name="IdTipoUsuario" readonly tabIndex="-1"/>
+    
+                            <label class="mdl-textfield__label" for="" requerido>Estado</label>
+    
+                            <ul class="mdl-menu mdl-menu--bottom-left mdl-js-menu dark_dropdown" for="IdTipoUsuario">
+                                    
+    
+                                    <li class="mdl-menu__item">1</li>
+                                    <div class="mdl-grid">
+
+                    <div class="mdl-cell mdl-cell--6-col mdl-textfield mdl-js-textfield mdl-textfield--floating-label getmdl-select">
+                        <input class="mdl-textfield__input" value="--" type="text" id="Estado" name="Estado" readonly tabIndex="-1"/>
+
+                        <label class="mdl-textfield__label" for="Estado" >Estado</label>
+
+                        <ul class="mdl-menu mdl-menu--bottom-left mdl-js-menu dark_dropdown" for="Estado">
+                               
+                                <li class="mdl-menu__item">1</li>
+                                <li class="mdl-menu__item">0</li> 
+                         
+                            </ul>
+    
+                            <label for="Estado" requerido>
+                                <i class="mdl-icon-toggle__label material-icons">arrow_drop_down</i>
+                            </label>
+    
+                        </div>
+                    </div>
+
                     </div>
                         <div class="form__action">
                                 
