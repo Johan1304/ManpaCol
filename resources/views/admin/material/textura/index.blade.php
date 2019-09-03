@@ -43,7 +43,7 @@
                                         
 
                                         <td>
-                                            <a href= "{{route('editar_usuario', ['Id'=>$usuario->Id])}}" >
+                                            <a href= "{{route('editar_textura', ['Id'=>$usuario->Id])}}" >
                                                 <button class="mdl-button mdl-js-button mdl-button--icon mdl-button--raised mdl-js-ripple-effect button--colored-orange"
                                                 >
                                                         <i class="material-icons">create</i>

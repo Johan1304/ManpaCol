@@ -58,12 +58,12 @@
             </div>
 
             <div class="mdl-card__supporting-text">
-            <form action="{{route('actualizar_usuario',['Id'=>$data->Id])}}" id="form-general" class="form" method='POST'>
-                @csrf @method("put")
+            <form action="{{route('actualizar_usuario',['Id'=>$usuario->Id])}}" id="form-general" class="form" method='POST'>
+                @csrf @method('put')
                 <div class="mdl-grid">
 
                         <div class="mdl-cell mdl-cell--6-col mdl-textfield mdl-js-textfield mdl-textfield--floating-label getmdl-select">
-                            <input class="mdl-textfield__input" value="{{old('IdTipoUsuario', $data->IdTipoUsuario ?? '')}}" type="text" id="IdTipoUsuario" name="IdTipoUsuario" readonly tabIndex="-1"/>
+                            <input class="mdl-textfield__input" value="{{old('IdTipoUsuario', $usuario->IdTipoUsuario ?? '')}}" type="text" id="IdTipoUsuario" name="IdTipoUsuario" readonly tabIndex="-1"/>
     
                             <label class="mdl-textfield__label" for="" requerido>TipoUsuario</label>
     
@@ -80,12 +80,12 @@
     
                     <div class="mdl-grid">
                         <div class="mdl-cell mdl-cell--6-col mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-                            <input class="mdl-textfield__input" type="text" name="Nombres" value="{{old('Nombres', $data->Nombres ?? '')}}" pattern="[A-Za-z]{1,60}"/>
+                            <input class="mdl-textfield__input" type="text" name="Nombres" value="{{old('Nombres', $usuario->Nombres ?? '')}}" pattern="[A-Za-z]{1,60}"/>
                             <label class="mdl-textfield__label" for="firstName" requerido>Nombres</label>
                         </div>
     
                         <div class="mdl-cell mdl-cell--6-col mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-                            <input class="mdl-textfield__input" type="text" name="Apellidos" value="{{old('Apellidos', $data->Apellidos ?? '')}}" pattern="[A-Za-z]{1,45}"/>
+                            <input class="mdl-textfield__input" type="text" name="Apellidos" value="{{old('Apellidos', $usuarios->Apellidos ?? '')}}" pattern="[A-Za-z]{1,45}"/>
                             <label class="mdl-textfield__label" for="secondName" requerido>Apellidos</label>
                         </div>
                     </div>
@@ -93,7 +93,7 @@
                     <div class="mdl-grid">
     
                         <div class="mdl-cell mdl-cell--6-col mdl-textfield mdl-js-textfield mdl-textfield--floating-label getmdl-select">
-                            <input class="mdl-textfield__input" value="{{old('IdTipoDocumento', $data->IdTipoDocumento ?? '')}}" type="text" id="tdoc" name="IdTipoDocumento" readonly tabIndex="-1"/>
+                            <input class="mdl-textfield__input" value="{{old('IdTipoDocumento', $usuario->IdTipoDocumento ?? '')}}" type="text" id="tdoc" name="IdTipoDocumento" readonly tabIndex="-1"/>
     
                             <label class="mdl-textfield__label" for="tdoc" requerido>TipoDoc</label>
     
@@ -105,7 +105,7 @@
                             </label>
                         </div>
                         <div class="mdl-cell mdl-cell--6-col mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-                            <input class="mdl-textfield__input" type="text" id="ndoc" name="NumDoc" value="{{old('NumDoc', $data->NumDoc ?? '')}}" pattern="[0-9]{7,14}"/>
+                            <input class="mdl-textfield__input" type="text" id="ndoc" name="NumDoc" value="{{old('NumDoc', $usuario->NumDoc ?? '')}}" pattern="[0-9]{7,14}"/>
                             <label class="mdl-textfield__label" for="ndoc">Numero de documento</label>
                         </div>
                     </div>
@@ -113,18 +113,18 @@
                     
     
                     <div class="mdl-cell mdl-cell--6-col mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-                        <input class="mdl-textfield__input" type="text" id="firstName" name="Email" value="{{old('Email', $data->Email ?? '')}}"/>
+                        <input class="mdl-textfield__input" type="text" id="firstName" name="Email" value="{{old('Email', $usuario->Email ?? '')}}"/>
                         <label class="mdl-textfield__label" for="firstName">Email</label>
                     </div>
     
                     <div class="mdl-grid">
                         <div class="mdl-cell mdl-cell--6-col mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-                            <input class="mdl-textfield__input" type="text" id="user" name="usuario" value="{{old('usuario', $data->usuario ?? '')}}" pattern="[A-Za-z0-9]{1,45}"/>
+                            <input class="mdl-textfield__input" type="text" id="user" name="usuario" value="{{old('usuario', $usuario->usuario ?? '')}}" pattern="[A-Za-z0-9]{1,45}"/>
                             <label class="mdl-textfield__label" for="user">Usuario</label>
                         </div>
     
                         <div class="mdl-cell mdl-cell--6-col mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-                            <input class="mdl-textfield__input" type="password" id="pass" name="password" value="{{old('password', $data->password ?? '')}}" pattern="[A-Za-z0-9]{1,200}"/>
+                            <input class="mdl-textfield__input" type="password" id="pass" name="password" value="{{old('password', $usuario->password ?? '')}}" pattern="[A-Za-z0-9]{1,200}"/>
                             <label class="mdl-textfield__label" for="pass">Contraseña</label>
                         </div>
                     </div>
@@ -133,7 +133,7 @@
                         <div class="form__action">
                                 
                            <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect button--colored-red"
-                           onclick = "this.form.action = '{{route('usuario')}}'">
+                           onclick = "this.form.action = '{{route('usuario')}}'" >
                                 Cancelar
                             </button>
     

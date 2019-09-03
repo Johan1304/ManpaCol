@@ -59,9 +59,11 @@ class TexturaController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function editar($id)
     {
-        //
+        $asd=Textura::findOrFail($id);
+        return view('admin.material.textura.editar', compact('asd'));
+
     }
 
     /**
@@ -71,9 +73,10 @@ class TexturaController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function actualizar(Request $request, $id)
     {
-        //
+        Textura::find($id)->update($request->all());
+        return redirect(route('textura'))->with('mensaje','actualizado correctamente'); 
     }
 
     /**

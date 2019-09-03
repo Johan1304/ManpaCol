@@ -53,7 +53,7 @@ class UsuarioController extends Controller
             'password'=>Crypt::encrypt($request->password)
         ));
         $usuario->save();   
-        return redirect(route('usuario'))->with('mensaje','TipoMaterial creado correctamente');
+        return redirect(route('usuario'))->with('mensaje','Usuario creado correctamente');
     }
 
     /**
@@ -75,8 +75,8 @@ class UsuarioController extends Controller
      */
     public function editar($id)
     {
-        $data=Usuario::findOrFail($id);
-        return view('admin.usuario.editar', compact('data'));
+        $usuario=Usuario::findOrFail($id);
+        return view('admin.usuario.editar', compact('usuario'));
     }
 
     /**
@@ -86,7 +86,7 @@ class UsuarioController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function actualizar (ValidacionUsuario $request, $id)
+    public function actualizar (request $request, $id)
     {
         Usuario::findOrFail($id)->update($request->all());
         return redirect(route('usuario'))->with('mensaje','Usuario actualizado correctamente');  

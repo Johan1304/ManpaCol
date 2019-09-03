@@ -45,7 +45,7 @@ Route::group(['prefix' => 'admin', 'namespace' => 'Admin'], function () {
     Route::get('','TipoMaterialController@crear')->name('Tipo_M');
     Route::post('material/tipomaterial','TipoMaterialController@guardar')->name('guardar_Tpmaterial');
     
-
+    
     Route::get('material/tipomaterial/crear','TipoPresentacionController@index');
     Route::get('material/tipopresentacion/crear','TipoPresentacionController@crear')->name('Tipo_P');
     Route::post('material/tipopresentacion', 'TipoPresentacionController@guardar')->name('guardar_presentacion');
@@ -54,6 +54,8 @@ Route::group(['prefix' => 'admin', 'namespace' => 'Admin'], function () {
     Route::get('material/textura','TexturaController@index')->name('textura');
     Route::get('material/textura/crear','TexturaController@crear')->name('textura_crear');
     Route::post('material/textura','TexturaController@guardar')->name('guardar_textura');
+    Route::get('textura/{Id}/editar', 'TexturaController@editar')->name('editar_textura');    
+    Route::PUT('textura/{Id}', 'TexturaController@actualizar')->name('actualizar_textura');
 
     Route::get('material/colores','ColorController@index')->name('color');
     Route::get('material/colores/crear','ColorController@crear')->name('color_crear');

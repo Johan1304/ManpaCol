@@ -7,7 +7,6 @@ use Illuminate\Database\Eloquent\Model;
 class Textura extends Model
 {
     protected $table = "texturapapel";
-    protected $fillable = ['Descripcion'];  
-    protected $guarded = ['Id'];
+    protected $fillable = ['Id','Descripcion'];  
     public $timestamps=false;
 }
