@@ -58,7 +58,7 @@
             </div>
 
             <div class="mdl-card__supporting-text">
-            <form action="{{route('guardar_presentacion')}}" id="form-general" class="form" metodh='POST'>
+            <form action="{{route('guardar_presentacion')}}" id="form-general" class="form" method='POST'>
                 @csrf
                 <div class="form__article">
                     <h3>Datos</h3>
@@ -87,7 +87,7 @@
                             <label class="mdl-textfield__label" for="firstName" requerido>Cantidad</label>
                         </div>
                         <div class="mdl-cell mdl-cell--6-col mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-                                <input class="mdl-textfield__input" type="text" name="UnidadMedida" value="{{old('UnidadMedida')}}" pattern="[a-z]{1,2}"/>
+                                <input class="mdl-textfield__input" type="text" name="UnidadMedida" value="{{old('UnidadMedida')}}" pattern="[a-zA-Z]{1,7}"/>
                                 <label class="mdl-textfield__label" for="firstName" requerido>Unidad de Medida</label>
                         </div>
                     </div>
@@ -101,7 +101,7 @@
                     <div class="form__action">
                             
                        <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect button--colored-red"
-                       onclick = "this.form.action = '../tipomaterial/crear'">
+                       onclick = "this.form.action = '../tipomaterial/crear'" formmethod="GET">
                             Volver
                         </button>
 

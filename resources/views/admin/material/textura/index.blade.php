@@ -15,7 +15,7 @@
             @include('includes.mensaje')
             <h3 class="box-title"> &nbsp&nbspTexturas</h3>
 
-            <a href="crear">
+            <a href="textura/crear">
             &nbsp&nbsp<button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect button--colored-teal"
                 >
                 <i class="material-icons">create</i>

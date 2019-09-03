@@ -26,7 +26,7 @@ class ValidacionPresentacion extends FormRequest
         return [
             'Descripcion' => 'required|max:50',
             'Cantidad' => 'required|max:4',
-            'UnidadMedida' => 'required|max:2'
+            'UnidadMedida' => 'required|max:6'
         ];
     }
 

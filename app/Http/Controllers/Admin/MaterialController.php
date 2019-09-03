@@ -38,7 +38,7 @@ class MaterialController extends Controller
     public function guardar(Request $request)
     {
         Material::create($request->all());
-        return redirect('admin.material.index');
+        return redirect('admin/material/index');
     }
 
     /**

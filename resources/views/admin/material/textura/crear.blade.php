@@ -58,7 +58,7 @@
             </div>
 
             <div class="mdl-card__supporting-text">
-            <form action="{{route('guardar_textura')}}" class="form" metodh='POST'>
+            <form action="{{route('guardar_textura')}}" class="form" method='POST'>
                 @csrf
                 <div class="form__article">
                     <h3>Datos</h3>
@@ -81,7 +81,7 @@
                     <div class="form__action">
 
                     <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect button--colored-red"
-                    onclick = "this.form.action = '../crear'">
+                    onclick = "this.form.action = '../crear'" formmethod="GET">
                         Volver
                     </button>
 
