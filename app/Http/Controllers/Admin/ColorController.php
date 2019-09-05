@@ -62,7 +62,8 @@ class ColorController extends Controller
      */
     public function edit($id)
     {
-        //
+        $color=Color::findOrFail($id);
+        return view('admin.material.colores.editar', compact('color'));
     }
 
     /**
@@ -74,7 +75,11 @@ class ColorController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $color=Color::findOrFail($id);
+        $color->Descripcion =request('Descripcion');
+        
+        Color::findOrFail($id)->update($request->all());
+        return redirect(route('color'))->with('mensaje','Color actualizado correctamente');
     }
 
     /**

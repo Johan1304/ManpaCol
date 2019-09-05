@@ -87,6 +87,7 @@
                         <input class="mdl-textfield__input" type="text" name="Nombres" value="" pattern="[A-Za-z]{1,45}"/>
                         <label class="mdl-textfield__label" for="firstName" requerido>Nombres</label>
                     </div>
+                   
 
                     <div class="mdl-cell mdl-cell--6-col mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
                         <input class="mdl-textfield__input" type="text" name="Apellidos" value="" pattern="[A-Za-z]{1,45}"/>
@@ -140,7 +141,7 @@
                     <div class="form__action">
                             
                        <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect button--colored-red"
-                       onclick = "this.form.action = '{{route('usuario')}}'">
+                       onclick = "this.form.action = '{{route('usuario')}}'" formmethod="GET">
                             Volver
                         </button>
 

@@ -39,7 +39,7 @@ class TexturaController extends Controller
     public function guardar(Request $request)
     {
         Textura::create($request->all());
-        return redirect('admin/material/crear')->with('Mensaje','Textura creada correctamente');
+        return back()->with('Mensaje','Textura creada correctamente');
     }
 
     /**

@@ -60,7 +60,8 @@ class ProveedorController extends Controller
      */
     public function edit($id)
     {
-        //
+        $proveedor=Proveedor::findOrFail($id);
+        return view('admin.material.proveedor.editar', compact('proveedor'));
     }
 
     /**
@@ -72,7 +73,8 @@ class ProveedorController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        Proveedor::findOrFail($id)->update($request->all());
+        return redirect(route('proveedor'))->with('mensaje','Proveedor actualizado correctamente');
     }
 
     /**

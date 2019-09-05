@@ -59,7 +59,8 @@
 
             <div class="mdl-card__supporting-text">
             <form action="{{route('actualizar_usuario',['Id'=>$usuario->Id])}}" id="form-general" class="form" method='POST'>
-                @csrf @method('put')
+                @method('PUT')
+                @csrf 
                 <div class="mdl-grid">
 
                         <div class="mdl-cell mdl-cell--6-col mdl-textfield mdl-js-textfield mdl-textfield--floating-label getmdl-select">
@@ -85,7 +86,7 @@
                         </div>
     
                         <div class="mdl-cell mdl-cell--6-col mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-                            <input class="mdl-textfield__input" type="text" name="Apellidos" value="{{old('Apellidos', $usuarios->Apellidos ?? '')}}" pattern="[A-Za-z]{1,45}"/>
+                            <input class="mdl-textfield__input" type="text" name="Apellidos" value="{{old('Apellidos', $usuario->Apellidos ?? '')}}" pattern="[A-Za-z]{1,45}"/>
                             <label class="mdl-textfield__label" for="secondName" requerido>Apellidos</label>
                         </div>
                     </div>
@@ -131,26 +132,17 @@
                     
                     <div class="mdl-grid">
 
-                        <div class="mdl-cell mdl-cell--6-col mdl-textfield mdl-js-textfield mdl-textfield--floating-label getmdl-select">
-                            <input class="mdl-textfield__input" value="1" type="text" id="IdTipoUsuario" name="IdTipoUsuario" readonly tabIndex="-1"/>
-    
-                            <label class="mdl-textfield__label" for="" requerido>Estado</label>
-    
-                            <ul class="mdl-menu mdl-menu--bottom-left mdl-js-menu dark_dropdown" for="IdTipoUsuario">
-                                    
-    
-                                    <li class="mdl-menu__item">1</li>
-                                    <div class="mdl-grid">
+                        
 
                     <div class="mdl-cell mdl-cell--6-col mdl-textfield mdl-js-textfield mdl-textfield--floating-label getmdl-select">
-                        <input class="mdl-textfield__input" value="--" type="text" id="Estado" name="Estado" readonly tabIndex="-1"/>
+                        <input class="mdl-textfield__input" value="{{old('Estado', $usuario->Estado ?? '')}}" type="text" id="Estado" name="Estado" readonly tabIndex="-1"/>
 
                         <label class="mdl-textfield__label" for="Estado" >Estado</label>
 
                         <ul class="mdl-menu mdl-menu--bottom-left mdl-js-menu dark_dropdown" for="Estado">
                                
-                                <li class="mdl-menu__item">1</li>
-                                <li class="mdl-menu__item">0</li> 
+                                <li class="mdl-menu__item">Activo</li>
+                                <li class="mdl-menu__item">Inactivo</li> 
                          
                             </ul>
     
@@ -162,18 +154,24 @@
                     </div>
 
                     </div>
-                        <div class="form__action">
-                                
-                           <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect button--colored-red"
-                           onclick = "this.form.action = '{{route('usuario')}}'" >
-                                Cancelar
-                            </button>
-    
-                          <button  type="submit" id="submit_button" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect button--colored-light-blue"
-                          >Editar</button>
-                        
-                        </div>
+                    <div class="form__action">
+                            
+                        <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect button--colored-red"
+                        onclick = "this.form.action = '{{route('usuario')}}'" formmethod="GET">
+                            Cancelar
+                         </button>
+ 
+                       <button  type="submit" id="submit_button" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect button--colored-light-blue"
+                       >Editar</button>
+                     
+                     </div>
             </form>
+
+            @if (session('actualizar'))
+                <div class="alert alert-success mt-3">
+                    {{session('actualizar')}}
+                </div>
+            @endif
             
         </div>
     </div>

@@ -1,13 +1,11 @@
 <?php
 
-namespace App\Http\Controllers\Admin;
+namespace App\Http\Controllers\User;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-use App\Http\Requests\ValidacionPresentacion;
-use App\Models\Admin\TipoPresentacion;
 
-class TipoPresentacionController extends Controller
+class UsuarioController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -16,8 +14,7 @@ class TipoPresentacionController extends Controller
      */
     public function index()
     {
-        $presentaciones=TipoPresentacion::orderBy('Id')->get();
-        return view('admin.material.tipomaterial.crear', compact('presentaciones'));
+        return view('usuario.index');
     }
 
     /**
@@ -25,9 +22,9 @@ class TipoPresentacionController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function crear()
+    public function create()
     {
-        return view('admin.material.tipopresentacion.crear');
+        //
     }
 
     /**
@@ -36,10 +33,9 @@ class TipoPresentacionController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function guardar(ValidacionPresentacion $request)
+    public function store(Request $request)
     {
-        TipoPresentacion::create($request->all());
-        return back()->with('Mensaje','TipoPresentacion creado correctamente');
+        //
     }
 
     /**
@@ -48,7 +44,7 @@ class TipoPresentacionController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function mostrar($id)
+    public function show($id)
     {
         //
     }
@@ -59,7 +55,7 @@ class TipoPresentacionController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function editar($id)
+    public function edit($id)
     {
         //
     }
@@ -71,7 +67,7 @@ class TipoPresentacionController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function actualizar(Request $request, $id)
+    public function update(Request $request, $id)
     {
         //
     }
@@ -82,7 +78,7 @@ class TipoPresentacionController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function eliminar($id)
+    public function destroy($id)
     {
         //
     }

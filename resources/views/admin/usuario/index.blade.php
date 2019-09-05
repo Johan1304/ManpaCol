@@ -57,10 +57,10 @@
                                         
                                         <td class="mdl-data-table__cell--non-numeric">
 
-                                            @if ($usuario['Estado'] =='1')
-                                            <span class="label label--mini background-color--primary">Read</span> 
+                                            @if ($usuario['Estado'] =='Activo')
+                                            <span class="label label--mini background-color--primary">Activo</span> 
                                             @else
-                                            <span class="label label--mini background-color--secondary">Unread</span>
+                                            <span class="label label--mini background-color--secondary">Inactivo</span>
                                             @endif
                                              
                                         </td>
