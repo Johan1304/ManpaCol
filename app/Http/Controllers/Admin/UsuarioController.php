@@ -88,15 +88,9 @@ class UsuarioController extends Controller
      */
     public function actualizar (request $request, $id)
     {
+
         $user=Usuario::findOrFail($id);
-        $user->Nombres=request('Nombres');
-        $user->Nombres=request('Nombres');
-        $user->Nombres=request('Nombres');
-        $user->Nombres=request('Nombres');
-        $user->Nombres=request('Nombres');
-        $user->Nombres=request('Nombres');
-        $user->Nombres=request('Nombres');
-        Usuario::findOrFail($id)->update($request->all());
+        $user->update($request->all());
         return redirect(route('usuario'))->with('mensaje','Usuario actualizado correctamente');  
 
     }

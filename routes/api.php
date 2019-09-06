@@ -15,4 +15,11 @@ use Illuminate\Http\Request;
 
 Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
+    \Event::listen('Illuminate\Database\Events\QueryExecuted', function ($query) {
+
+        Log::debug($query->sql);
+        Log::debug($query->bindings);
+        Log::debug($query->time);
+    
+    });
 });

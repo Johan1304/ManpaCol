@@ -73,8 +73,13 @@ class ProveedorController extends Controller
      */
     public function update(Request $request, $id)
     {
-        Proveedor::findOrFail($id)->update($request->all());
+        $cliente= Proveedor::findOrFail( $id );
+    if ( $cliente->update( $request->all() ) ){
         return redirect(route('proveedor'))->with('mensaje','Proveedor actualizado correctamente');
+    }else{
+      return redirect()->back()->with('mensaje','orrectamente');; 
+    }
+        
     }
 
     /**
