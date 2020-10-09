@@ -8,6 +8,14 @@ use App\Models\Admin\Color;
 
 class ColorController extends Controller
 {
+
+
+    public function __construct()
+    {
+        $this->middleware('checkrole');
+    }
+
+
     /**
      * Display a listing of the resource.
      *
@@ -15,7 +23,7 @@ class ColorController extends Controller
      */
     public function index()
     {
-        $colores=Color::orderBy('Descripcion')->get();
+        $colores=Color::orderBy('id')->get();
         
         return view('admin.material.colores.index', compact('colores'));
     }

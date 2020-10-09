@@ -1,6 +1,6 @@
 <html lang="en" xmlns="http://www.w3.org/1999/html">
 <head>
-    <link rel="icon" type="image/png" href="images/DB_16х16.png">
+    <link rel="icon" type="image/png" href="{{asset("assets/$theme/images/DB_16х16.ico")}}">
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="description" content="A front-end template that helps you build fast, modern mobile web apps.">
@@ -31,8 +31,8 @@
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <!-- inject:css -->
     <link rel="stylesheet" href="{{asset("assets/$theme/css/lib/getmdl-select.min.css")}}">
-        <link rel="stylesheet" href="{{asset("assets/$theme/css/lib/nv.d3.min.css")}}">
-        <link rel="stylesheet" href="{{asset("assets/$theme/css/application.min.css")}}">
+    <link rel="stylesheet" href="{{asset("assets/$theme/css/lib/nv.d3.min.css")}}">
+    <link rel="stylesheet" href="{{asset("assets/$theme/css/application.min.css")}}">
     <!-- endinject -->
 
 </head>
@@ -117,7 +117,7 @@
 </div>
 
 
-<script src="{{asset("assets/$theme/js/d3.min.js")}}"></script>
+        <script src="{{asset("assets/$theme/js/d3.min.js")}}"></script>
         <script src="{{asset("assets/$theme/js/getmdl-select.min.js")}}"></script>
         <script src="{{asset("assets/$theme/js/material.min.js")}}"></script>
         <script src="{{asset("assets/$theme/js/nv.d3.min.js")}}"></script>

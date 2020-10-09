@@ -9,6 +9,12 @@ use App\Models\Admin\TipoPresentacion;
 
 class TipoPresentacionController extends Controller
 {
+
+    public function __construct()
+    {
+        $this->middleware('checkrole');
+    }
+
     /**
      * Display a listing of the resource.
      *

@@ -1,2 +1,1 @@
-Enviado :3
-{{$pass}}
+Esta es su contraseña:  {{$pass}}

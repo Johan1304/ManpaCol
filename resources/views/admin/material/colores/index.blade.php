@@ -37,13 +37,13 @@
                         <tbody>
                             @foreach ($colores as $usuario)
                                 <tr>
-                                        <td class="mdl-data-table__cell--non-numeric">{{$usuario->Id}}</td>
-                                        <td class="mdl-data-table__cell--non-numeric">{{$usuario->Descripcion}}</td>
+                                        <td class="mdl-data-table__cell--non-numeric">{{$usuario->id}}</td>
+                                        <td class="mdl-data-table__cell--non-numeric">{{$usuario->descripcion}}</td>
                                         
                                         
 
                                         <td>
-                                            <a href= "{{route('editar_color', ['Id'=>$usuario->Id])}}" >
+                                            <a href= "{{route('editar_color', ['id'=>$usuario->id])}}" >
                                                 <button class="mdl-button mdl-js-button mdl-button--icon mdl-button--raised mdl-js-ripple-effect button--colored-orange"
                                                 >
                                                         <i class="material-icons">create</i>

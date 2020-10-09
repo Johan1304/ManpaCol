@@ -64,7 +64,7 @@
                 <div class="mdl-grid">
 
                         <div class="mdl-cell mdl-cell--6-col mdl-textfield mdl-js-textfield mdl-textfield--floating-label getmdl-select">
-                            <input class="mdl-textfield__input" value="{{old('IdTipoUsuario', $usuario->IdTipoUsuario ?? '')}}" type="text" id="IdTipoUsuario" name="IdTipoUsuario" readonly tabIndex="-1"/>
+                            <input class="mdl-textfield__input" value="{{old('IdTipoUsuario', $usuario->tipo->descripcion ?? '')}}" type="text" id="IdTipoUsuario" name="IdTipoUsuario" readonly tabIndex="-1"/>
     
                             <label class="mdl-textfield__label" for="" requerido>TipoUsuario</label>
     
@@ -72,7 +72,7 @@
                             
                                 @foreach ($tiposusuario as $tipo)
 
-                                <li class="mdl-menu__item">{{$tipo->Descripcion}}</li>
+                                <li class="mdl-menu__item">{{$tipo->descripcion}}</li>
                                 
                                 @endforeach    
                         
@@ -136,6 +136,11 @@
                     <div class="mdl-cell mdl-cell--6-col mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
                         <input class="mdl-textfield__input" type="text" id="firstName" name="Email" value="{{old('email', $usuario->email ?? '')}}"/>
                         <label class="mdl-textfield__label" for="firstName">Email</label>
+                        <div class="alert alert-danger">
+        
+                            {{ $errors->first('Email') }}
+                         
+                     </div>
                     </div>
 
                     <div class="mdl-grid">

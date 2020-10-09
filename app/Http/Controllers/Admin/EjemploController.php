@@ -7,6 +7,13 @@ use App\Http\Controllers\Controller;
 
 class EjemploController extends Controller
 {
+
+    public function __construct()
+    {
+        $this->middleware('checkrole');
+    }
+
+
     /**
      * Display a listing of the resource.
      *

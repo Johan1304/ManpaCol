@@ -40,52 +40,53 @@
 </head>
 <body>
 <div class="mdl-layout mdl-js-layout color--gray is-small-screen login">
-<main class="mdl-layout__content">
-                <div class="card-body">
-                    @if (session('status'))
-                        <div class="alert alert-success" role="alert">
-                            {{ session('status') }}
+    <main class="mdl-layout__content">
+
+        <div class="mdl-card mdl-card__login mdl-shadow--2dp">
+            @if (session('status'))
+            <div class="alert alert-success" role="alert">
+                {{ session('status') }}
+            </div>
+            @endif
+
+            <form method="POST" action="{{ route('password.email') }}">
+            @csrf
+            <div class="mdl-card mdl-card__login mdl-shadow--2dp">
+                <div class="mdl-card__supporting-text color--dark-gray">
+                    <div class="mdl-grid">
+                        <div class="mdl-cell mdl-cell--12-col mdl-cell--4-col-phone">
+                            <span class="mdl-card__title-text text-color--smooth-gray">ManpaCol</span>
                         </div>
-                    @endif
+                        <div class="mdl-cell mdl-cell--12-col mdl-cell--4-col-phone">
+                            <span class="login-name text-color--white">Olvidaste tu contraseña?</span>
+                            <span class="login-secondary-text text-color--smoke">Digita tu e-mail</span>
+                        </div>
+                        <div class="mdl-cell mdl-cell--12-col mdl-cell--4-col-phone">
+                            <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label full-size">
+                                <input id="email" type="email" class="mdl-textfield__input form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" onclick="required" autocomplete="email" autofocus>
+                                <label class="mdl-textfield__label" for="e-mail">Email</label>
+                                    
 
-                    <form method="POST" action="{{ route('password.email') }}">
-                        @csrf
-                        <div class="mdl-card mdl-card__login mdl-shadow--2dp">
-        <div class="mdl-card__supporting-text color--dark-gray">
-            <div class="mdl-grid">
-                <div class="mdl-cell mdl-cell--12-col mdl-cell--4-col-phone">
-                    <span class="mdl-card__title-text text-color--smooth-gray">ManpaCol</span>
-                </div>
-                <div class="mdl-cell mdl-cell--12-col mdl-cell--4-col-phone">
-                    <span class="login-name text-color--white">Olvidaste tu contraseña?</span>
-                    <span class="login-secondary-text text-color--smoke">Digita tu e-mail</span>
-                </div>
-                <div class="mdl-cell mdl-cell--12-col mdl-cell--4-col-phone">
-                    <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label full-size">
-                    <input id="email" type="email" class="mdl-textfield__input form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" onclick="required" autocomplete="email" autofocus>
-                        <label class="mdl-textfield__label" for="e-mail">Email</label>
-                                
-
-                                @error('email')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                @enderror
+                                    @error('email')
+                                        <span class="invalid-feedback" role="alert">
+                                            <strong>{{ $message }}</strong>
+                                        </span>
+                                    @enderror
                             </div>
                         </div>
 
                         <div class="mdl-cell mdl-cell--12-col mdl-cell--4-col-phone submit-cell">
-                    <div class="mdl-layout-spacer"></div>
+                            <div class="mdl-layout-spacer"></div>
                                 <button type="submit" class="mdl-button mdl-js-button mdl-button--raised color--light-blue btn btn-primary">
                                     {{ __('Enviar') }}
                                 </button>
-                            </a>
+                                </a>
+                        </div>
+                    </div>
                 </div>
             </div>
+            </form>
         </div>
-    </div>
-                    </form>
-                    </div>
 
 <!-- inject:js -->
 <script src="{{asset("assets/$theme/js/d3.min.js")}}"></script>

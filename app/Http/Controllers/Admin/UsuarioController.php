@@ -13,9 +13,20 @@ use App\User;
 use Illuminate\Support\Facades\Crypt;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Mail;
+use Illuminate\Support\Str;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Validator;
+use Illuminate\Validation\Rule;
+
 
 class UsuarioController extends Controller
 {
+
+
+    public function __construct()
+    {
+        $this->middleware('checkrole');
+    }
     /**
      * Display a listing of the resource.
      *
@@ -48,10 +59,15 @@ class UsuarioController extends Controller
      */
     public function guardar(Request $request)
     {
-        $pass=str_random(9);
+        $pass= Str::random(9);
+        if($request->get('IdTipoUsuario')=="administrador"){
+            $tipousuario=1;
+        }else{
+            $tipousuario=2;
+        }
 
         $msg = Usuario::create([
-            'IdTipoUsuario' => $request->get('IdTipoUsuario'),
+            'tipousuario_id' => $tipousuario,
             'name'=> $request->get('name'),
             'Apellidos'=>$request->get('Apellidos'),
             'IdTipoDocumento'=>$request->get('IdTipoDocumento'),
@@ -60,7 +76,7 @@ class UsuarioController extends Controller
             'password'=>Hash::make($pass),      
         ]);
        
-        Mail::to('johitan1304@gmail.com')->queue(new Mensaje($msg,$pass));
+        Mail::to($request->get('email'))->send(new Mensaje($msg,$pass));
 
         
 
@@ -87,9 +103,9 @@ class UsuarioController extends Controller
     public function editar($id)
     {
         $usuario=Usuario::findOrFail($id);
-        $tiposusuario=Tipousuario::orderBy('Descripcion')->get();
+        $tiposusuario=Tipousuario::orderBy('id')->get();
         $documentos=TipoDocumento::orderBy('Descripcion')->get();   
-        return view('admin.usuario.editar', compact('usuario','documentos','tiposusuario'));
+        return view('admin.usuario.editar', compact('usuario','usuarios','documentos','tiposusuario'));
     }
 
     /**
@@ -102,8 +118,34 @@ class UsuarioController extends Controller
     public function actualizar (Request $request, $id)
     {
 
+        
+
+        if($request->get('IdTipoUsuario')=="administrador"){
+            $tipousuario=1;
+        }else{
+            $tipousuario=2;
+        }
         $user=Usuario::findOrFail($id);
-        $user->update($request->all());
+
+        // $this->validate($request,
+        // ['NumDoc' => ['required|unique:usuario,NumDoc,'.$id],
+        // 'email' => ['required|email']] );
+
+        $validacion=$request->validate([
+            
+            'NumDoc' => 'required|unique:usuario,NumDoc,'.$id,
+            'Email'  => 'required'
+        ]);
+
+        $user->update(
+            ['tipousuario_id' => $tipousuario,
+            'name'=> $request->get('name'),
+            'Apellidos'=>$request->get('Apellidos'),
+            'IdTipoDocumento'=>$request->get('IdTipoDocumento'),
+            'NumDoc'=>$request->get('NumDoc'),
+            'email'=>$request->get('Email'),
+            'Estado'=>$request->get('Estado')]  );
+            
         return redirect(route('usuario'))->with('mensaje','Usuario actualizado correctamente');  
 
     }

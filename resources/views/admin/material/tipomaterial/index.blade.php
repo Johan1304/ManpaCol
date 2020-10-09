@@ -13,7 +13,7 @@
 <div class="mdl-card mdl-shadow--2dp">
         <div class="box-header">
             <h3 class="box-title"> &nbsp&nbspTipo Material</h3>
-            <a href="material/crear">
+            <a href="tipomaterial/crear">
             <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect button--colored-light-blue"
             >
                     <i class="material-icons">create</i>

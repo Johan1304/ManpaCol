@@ -22,11 +22,11 @@ Auth::routes();
 Route::get('/home', 'HomeController@index')->name('home')->middleware('auth');
 
 
-Route::group(['prefix' => 'admin', 'namespace' => 'Admin','middleware'=>'admin'], function () {
 
-    
+Route::group(['prefix' => 'admin', 'namespace' => 'Admin','middleware'=>['auth']], function () {
+
     Route::get('/','AdminController@index');
-
+    
     /*Usuario*/
     Route::get('usuario', 'UsuarioController@index')->name('usuario');
     Route::get('', 'UsuarioController@crear')->name('crear_usuario');
@@ -61,20 +61,23 @@ Route::group(['prefix' => 'admin', 'namespace' => 'Admin','middleware'=>'admin']
     Route::get('material/textura','TexturaController@index')->name('textura');
     Route::get('material/textura/crear','TexturaController@crear')->name('textura_crear');
     Route::post('material/textura','TexturaController@guardar')->name('guardar_textura');
-    Route::get('textura/{Descripcion}/editar', 'TexturaController@editar')->name('editar_textura');    
+    Route::get('textura/{id}/editar', 'TexturaController@editar')->name('editar_textura');    
     Route::put('textura/{id}', 'TexturaController@actualizar')->name('actualizar_textura');
 
     Route::get('material/colores','ColorController@index')->name('color');
     Route::get('material/colores/crear','ColorController@crear')->name('color_crear');
     Route::post('material/colores','ColorController@guardar')->name('guardar_color');
-    Route::get('material/colores/{Id}/editar', 'ColorController@edit')->name('editar_color');    
-    Route::put('material/colores/textura/{Id}', 'ColorController@update')->name('actualizar_color');
+    Route::get('material/colores/{id}/editar', 'ColorController@edit')->name('editar_color');    
+    Route::put('material/colores/{id}', 'ColorController@update')->name('actualizar_color');
 
 
     Route::get('material/proveedor','ProveedorController@index')->name('proveedor');
     Route::get('material/proveedor/crear','ProveedorController@crear')->name('proveedor_crear');
     Route::post('material/proveedor','ProveedorController@guardar')->name('guardar_proveedor');
-    Route::get('material/proveedor/{id}/editar', 'ProveedorController@edit')->name('editar_proveedor');    
+    
+    
+    
+    Route::get('material/proveedor{id}/editar', 'ProveedorController@edit')->name('editar_proveedor');    
     Route::put('material/proveedor/{id}', 'ProveedorController@update')->name('actualizar_proveedor');
     /*Fin Material*/
 
@@ -87,8 +90,8 @@ Route::group(['prefix' => 'admin', 'namespace' => 'Admin','middleware'=>'admin']
     
 });
 
-Route::group(['prefix'=>'usuario', 'namespace'=>'User','middleware'=>'admin'], function(){
-    Route::get('/','UsuarioController@index');
+Route::group(['prefix'=>'usuario', 'namespace'=>'User','middleware'=>['auth']], function(){
+    Route::get('/','UsuarioController@index')->name('usuario1');
 
     Route::get('entrada','EntradaController@index')->name('entrada');
     Route::post('entrada/{id}','EntradaController@update')->name('actualizar_entrada');
@@ -103,7 +106,7 @@ Route::group(['prefix'=>'usuario', 'namespace'=>'User','middleware'=>'admin'], f
 
 
     Route::get('MaterialDañado/crear', 'MaterialDañadoController@index')->name('material_danado');
-    Route::post('MaterialDañado', 'MaterialDañadoController@store')->name('material_danado_guardar');
+    Route::post('MaterialDañado/crear', 'MaterialDañadoController@store')->name('material_danado_guardar');
     
 });
 

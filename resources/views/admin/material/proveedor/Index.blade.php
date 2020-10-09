@@ -39,19 +39,19 @@
                             </tr>
                         </thead>
                         <tbody>
-                            @foreach ($provedores as $usuario)
+                            @foreach ($proveedores as $proveedor)
                                 <tr>
-                                        <td class="mdl-data-table__cell--non-numeric">{{$usuario->id}}</td>
-                                        <td class="mdl-data-table__cell--non-numeric">{{$usuario->Nombre}}</td>
-                                        <td class="mdl-data-table__cell--non-numeric">{{$usuario->NombreRepresentante }}</td>
-                                        <td class="mdl-data-table__cell--non-numeric">{{$usuario->TelefonoRepresentante}}</td>
+                                        <td class="mdl-data-table__cell--non-numeric">{{$proveedor->id}}</td>
+                                        <td class="mdl-data-table__cell--non-numeric">{{$proveedor->Nombre}}</td>
+                                        <td class="mdl-data-table__cell--non-numeric">{{$proveedor->NombreRepresentante }}</td>
+                                        <td class="mdl-data-table__cell--non-numeric">{{$proveedor->TelefonoRepresentante}}</td>
                                         
-                                        <td class="mdl-data-table__cell--non-numeric">{{$usuario->Email}}</td>
-                                        <td class="mdl-data-table__cell--non-numeric">{{$usuario->PaisOrigen}}</td>
+                                        <td class="mdl-data-table__cell--non-numeric">{{$proveedor->Email}}</td>
+                                        <td class="mdl-data-table__cell--non-numeric">{{$proveedor->PaisOrigen}}</td>
                                         
 
                                         <td>
-                                            <a href= "{{route('editar_proveedor', ['id'=>$usuario->id])}}" >
+                                            <a href= "{{route('editar_proveedor', ['id'=>$proveedor->id])}}" >
                                                 <button class="mdl-button mdl-js-button mdl-button--icon mdl-button--raised mdl-js-ripple-effect button--colored-orange"
                                                 >
                                                         <i class="material-icons">create</i>

@@ -8,6 +8,12 @@ use App\Models\Admin\Textura;
 
 class TexturaController extends Controller
 {
+
+    public function __construct()
+    {
+        $this->middleware('checkrole');
+    }
+
     /**
      * Display a listing of the resource.
      *
@@ -15,7 +21,7 @@ class TexturaController extends Controller
      */
     public function index()
     {
-        $texturas=Textura::orderBy('Descripcion')->get();
+        $texturas=Textura::orderBy('id')->get();
         return view('admin.material.textura.index', compact('texturas'));
 
     }
@@ -59,9 +65,9 @@ class TexturaController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function editar($Descripcion)
+    public function editar($id)
     {
-        $asd=Textura::findOrFail($Descripcion);
+        $asd=Textura::findOrFail($id);
         return view('admin.material.textura.editar', compact('asd'));
 
     }

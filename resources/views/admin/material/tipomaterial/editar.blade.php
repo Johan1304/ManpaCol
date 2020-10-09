@@ -112,7 +112,7 @@
                         Volver
                     </button>
                     <button  type="submit" id="submit_button" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect button--colored-light-blue"
-                    >Crear</button>
+                    >Editar</button>
                     
                 </div>
             </form>

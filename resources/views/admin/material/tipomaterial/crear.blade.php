@@ -80,7 +80,7 @@
 
                             <ul class="mdl-menu mdl-menu--bottom-left mdl-js-menu dark_dropdown" for="IdTipoUsuario">
                                 @foreach ($presentaciones as $presentacion)
-                                <li class="mdl-menu__item">{{$presentacion->id}}</li>
+                                <li class="mdl-menu__item">{{$presentacion->Descripcion}}</li>
                                 @endforeach                                     
                             </ul>
 

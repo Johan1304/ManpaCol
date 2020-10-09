@@ -5,7 +5,7 @@ namespace App\Http\Middleware;
 use Closure;
 use Illuminate\Support\Facades\Auth;
 
-class CheckRole
+class checkrole2
 {
     /**
      * Handle an incoming request.
@@ -16,13 +16,14 @@ class CheckRole
      */
     public function handle($request, Closure $next)
     {
-        if(Auth::user()->tipousuario_id == 1){
+        if(Auth::user()->tipousuario_id == 2){
             
             return $next($request);
         }
-        if(Auth::user()->tipousuario_id == 2){
-            return  redirect()->route('usuario1');
+        if(Auth::user()->tipousuario_id == 1){
+            return  redirect('admin');
         }
         return  redirect('/');
     }
 }
+

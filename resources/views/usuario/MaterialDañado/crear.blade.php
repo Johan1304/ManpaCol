@@ -45,7 +45,7 @@
 @include ("theme/$theme/header ")
 
 <!-- ASIDE -->
-@include('theme/admin/asideAdm')
+@include('theme/admin/asideUser')
 
 
 
@@ -68,16 +68,16 @@
 
 
                     <div class="mdl-cell mdl-cell--6-col mdl-textfield mdl-js-textfield mdl-textfield--floating-label getmdl-select">
-                            <input class="mdl-textfield__input" value="" type="text" id="IdTipoUsuario" name="idMaterial" readonly tabIndex="-1"/>
+                            <input class="mdl-textfield__input" value="" type="text" id="IdMaterial" name="idMaterial" readonly tabIndex="-1"/>
 
                             <label class="mdl-textfield__label" for="" requerido>Material</label>
 
-                            <ul class="mdl-menu mdl-menu--bottom-left mdl-js-menu dark_dropdown" for="IdTipoUsuario">
+                            <ul class="mdl-menu mdl-menu--bottom-left mdl-js-menu dark_dropdown" for="IdMaterial">
                                 @foreach ($material as $tipo)
-                                <li class="mdl-menu__item">{{$tipo->id}}</li>
+                                <li class="mdl-menu__item">{{$tipo->tipoMaterial->Descripcion}}</li>
                                 @endforeach                                     
                             </ul>
-                            <label for="IdTipoUsuario" requerido>
+                            <label for="IdMaterial" requerido>
                                 <i class="mdl-icon-toggle__label material-icons">arrow_drop_down</i>
                             </label>
 

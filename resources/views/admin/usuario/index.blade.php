@@ -5,7 +5,7 @@
 @endsection
 
 @section('menu')
-@include('theme/admin/asideAdm')
+@include('theme/admin/asideProfile')
 @endsection
 
 @section('contenido')
@@ -36,6 +36,7 @@
                                 <th class="mdl-data-table__cell--non-numeric">Apellidos</th>
                                 <th class="mdl-data-table__cell--non-numeric">TipoDocumento</th>
                                 <th class="mdl-data-table__cell--non-numeric">Documento</th>
+                                <th class="mdl-data-table__cell--non-numeric">TipoUsuario</th>
                                 <th class="mdl-data-table__cell--non-numeric">Email</th>
                                 <th class="mdl-data-table__cell--non-numeric">Usuario</th>
                                
@@ -50,6 +51,7 @@
                                         <td class="mdl-data-table__cell--non-numeric">{{$usuario->Apellidos}}</td>
                                         <td class="mdl-data-table__cell--non-numeric">{{$usuario->IdTipoDocumento}}</td>                                 
                                         <td class="mdl-data-table__cell--non-numeric">{{$usuario->NumDoc}}</td>
+                                        <td class="mdl-data-table__cell--non-numeric">{{$usuario->tipo->descripcion}}</td>
                                         <td class="mdl-data-table__cell--non-numeric">{{$usuario->email}}</td>
                                       
                                         <td class="mdl-data-table__cell--non-numeric">

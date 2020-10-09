@@ -8,6 +8,12 @@ use App\Models\Usuario\Entrada;
 
 class ReporteController extends Controller
 {
+
+    public function __construct()
+    {
+        $this->middleware('checkrole2');
+    }
+    
     /**
      * Display a listing of the resource.
      *

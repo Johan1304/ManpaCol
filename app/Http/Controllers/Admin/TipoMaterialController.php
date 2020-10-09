@@ -13,6 +13,12 @@ use App\Models\Admin\TipoPresentacion;
 
 class TipoMaterialController extends Controller
 {
+
+    public function __construct()
+    {
+        $this->middleware('checkrole');
+    }
+
     /**
      * Display a listing of the resource.
      *
@@ -47,7 +53,12 @@ class TipoMaterialController extends Controller
      */
     public function guardar(Request $request)
     {
-        TipoMaterial::create($request->all());
+       
+        $idTipoPresentacion=TipoPresentacion::where('Descripcion',$request->get('IdTipoPresentacion'))->first();
+        TipoMaterial::create([
+            'Descripcion'=>$request->get('Descripcion'),
+            'IdTipoPresentacion'=>$idTipoPresentacion->id,
+            ]);
         return redirect('admin/material/crear')->with('Mensaje','TipoMaterial creado correctamente');
     }
 

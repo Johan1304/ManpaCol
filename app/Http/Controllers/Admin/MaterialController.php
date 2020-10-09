@@ -14,6 +14,13 @@ use Illuminate\Support\Facades\DB;
 
 class MaterialController extends Controller
 {
+
+    public function __construct()
+    {
+        $this->middleware('checkrole');
+    }
+
+
     /**
      * Display a listing of the resource.
      *

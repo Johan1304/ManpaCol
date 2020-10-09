@@ -8,6 +8,13 @@ use App\Models\Admin\Empleado;
 
 class EmpleadoController extends Controller
 {
+
+    public function __construct()
+    {
+        $this->middleware('checkrole');
+    }
+
+
     /**
      * Display a listing of the resource.
      *

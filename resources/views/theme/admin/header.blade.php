@@ -147,7 +147,7 @@
                 <li class="list__item--border-top"></li>
                 <li class="mdl-menu__item mdl-list__item">
                     <span class="mdl-list__item-primary-content">
-                        <i class="material-icons mdl-list__item-icon">settings</i>
+                        <i class="material-icons mdl-list__item-icon">account_circle</i>
                         Configuración
                     </span>
                 </li>

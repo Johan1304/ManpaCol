@@ -11,6 +11,12 @@ use Illuminate\Support\Facades\DB;
 
 class EntradaController extends Controller
 { 
+
+    public function __construct()
+    {
+        $this->middleware('checkrole2');
+    }
+
     /**
      * Display a listing of the resource.
      *

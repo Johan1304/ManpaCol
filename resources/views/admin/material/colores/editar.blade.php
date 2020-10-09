@@ -60,7 +60,7 @@
             </div>
 
             <div class="mdl-card__supporting-text">
-            <form action="{{route('actualizar_color',['Id'=>$color->Id])}}" class="form" method='POST'>
+            <form action="{{route('actualizar_color',['id'=>$color->id])}}" class="form" method='POST'>
                 @method('PUT')
                 @csrf 
                 <div class="form__article">
@@ -70,7 +70,7 @@
 
                     <div class="mdl-grid">
                         <div class="mdl-cell mdl-cell--6-col mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-                            <input class="mdl-textfield__input" type="text" name="Descripcion" value="{{$color->Descripcion}}"/>
+                            <input class="mdl-textfield__input" type="text" name="descripcion" value="{{old('descripcion', $color->descripcion ?? '')}}"/>
                             <label class="mdl-textfield__label" for="firstName" requerido>Color</label>
                         </div>
                     </div>

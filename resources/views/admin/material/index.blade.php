@@ -45,7 +45,7 @@
                                 <td class="mdl-data-table__cell--non-numeric">{{$material->id}}</td>
                                 <td class="mdl-data-table__cell--non-numeric">{{$material->Descripcion}}</td>
                                 <td class="mdl-data-table__cell--non-numeric">{{$material->Existencias}}</td>
-                                <td class="mdl-data-table__cell--non-numeric">{{$material->Color}}</td>
+                                <td class="mdl-data-table__cell--non-numeric">{{$material->color_id}}</td>
                                 <td class="mdl-data-table__cell--non-numeric">{{$material->IdTextura}}</td>
                                 <td class="mdl-data-table__cell--non-numeric">{{$material->Nombre}}</td>
                                 

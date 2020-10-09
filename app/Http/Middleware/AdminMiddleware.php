@@ -17,7 +17,7 @@ class AdminMiddleware
     public function handle($request, Closure $next)
     {
 
-        if (Auth::user())
+        if ($request->user() && $request->user()->Estado)
         {
             if ($request->ajax())
             {

@@ -26,20 +26,22 @@ class LoginController extends Controller
      *
      * @var string
      */
-    protected $redirectTo = '/admin';
-    protected function redirectTo()
-    {
+    // protected $redirectTo = '/admin';
+     protected function redirectTo()
+     {
         if(Auth::user()->Estado=="Activo"){    
-            if(Auth::user()->IdTipoUsuario=="adminstrador"){
-                return '/admin';
-            }else{
-                return '/usuario';
-            }
-        }
-        else{
-            return '/inactivo';
-        }
-    }
+             if(Auth::user()->tipousuario_id=="1"){
+                $this->redirectTo = '/admin';
+                return $this->redirectTo;
+        }else{
+            $this->redirectTo = '/usuario';
+            return $this->redirectTo;
+         }
+     }
+     else{
+         return '/inactivo';
+     }
+     }
 
     /**
      * Create a new controller instance.

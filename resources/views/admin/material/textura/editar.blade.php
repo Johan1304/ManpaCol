@@ -53,12 +53,12 @@
     <main class="mdl-layout__content mdl-color--grey-100">
         <div class="mdl-card mdl-shadow--2dp employer-form" action="">
             <div class="mdl-card__title">
-                <h2>Crear Textura</h2>
+                <h2>Editar Textura</h2>
                 <div class="mdl-card__subtitle"></div>
             </div>
 
             <div class="mdl-card__supporting-text">
-            <form action="{{route('actualizar_textura',['id'=>$asd->Descripcion])}}" class="form" method='POST'>
+            <form action="{{route('actualizar_textura',['id'=>$asd->id])}}" class="form" method='POST'>
                 @csrf @method('put')
                 <div class="form__article">
                     <h3>Datos</h3>
@@ -67,7 +67,7 @@
 
                     <div class="mdl-grid">
                         <div class="mdl-cell mdl-cell--6-col mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-                            <input class="mdl-textfield__input" type="text" name="Descripcion" value="{{old('Descripcion', $asd->Descripcion ?? '')}}"/>
+                            <input class="mdl-textfield__input" type="text" name="descripcion" value="{{old('Descripcion', $asd->descripcion ?? '')}}"/>
                             <label class="mdl-textfield__label"  requerido>Textura</label>
                         </div>
                     </div>
@@ -81,7 +81,7 @@
                     <div class="form__action">
 
                     <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect button--colored-red"
-                    onclick = "this.form.action = '../crear'" formmethod="GET">
+                    onclick = "this.form.action = '../index'" formmethod="GET">
                         Volver
                     </button>
 

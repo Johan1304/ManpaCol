@@ -8,6 +8,12 @@ use Illuminate\Support\Facades\DB;
 
 class ReportesController extends Controller
 {
+
+    public function __construct()
+    {
+        $this->middleware('checkrole2');
+    }
+    
     /**
      * Display a listing of the resource.
      *
