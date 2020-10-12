@@ -10,7 +10,7 @@ class UsuarioController extends Controller
 
     public function __construct()
     {
-        $this->middleware('checkrole2');
+        // $this->middleware('checkrole2');
     }
 
     /**

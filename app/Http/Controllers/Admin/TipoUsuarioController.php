@@ -12,7 +12,7 @@ class TipousuarioController extends Controller
 
     public function __construct()
     {
-        $this->middleware('checkrole');
+        // $this->middleware('checkrole');
     }
 
     /**

@@ -2,6 +2,8 @@
 
 namespace App\Models\Usuario;
 
+use App\Models\Admin\Proveedor;
+use App\Models\Admin\Textura;
 use Illuminate\Database\Eloquent\Model;
 
 class Material extends Model
@@ -10,4 +12,20 @@ class Material extends Model
     protected $fillable=['IdTipoMaterial','Existencias','color_id','IdTextura','IdProveedor'];
     protected $guardered=['id'];
     public $timestamps=false;
+    public function tipoMaterial(){
+        return $this->belongsTo('App\Models\Admin\TipoMaterial','IdTipoMaterial');
+    }
+    public function color(){
+        return $this->belongsTo('App\Models\Admin\Color');
+    }
+
+    public function textura(){
+        return $this->belongsTo(Textura::class,'IdTextura');
+    }
+
+    public function proveedor(){
+        return $this->belongsTo(Proveedor::class,'IdProveedor');
+    }
+
+    
 }

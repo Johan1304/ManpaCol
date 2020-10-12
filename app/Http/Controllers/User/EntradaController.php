@@ -14,7 +14,7 @@ class EntradaController extends Controller
 
     public function __construct()
     {
-        $this->middleware('checkrole2');
+        // $this->middleware('checkrole2');
     }
 
     /**
@@ -25,11 +25,12 @@ class EntradaController extends Controller
     public function index()
     {
         // $materiales=Material::orderBy('Id')->get();
-        $materiales=DB::table('material')
-        ->join('tipomaterial', 'material.IdTipoMaterial', '=', 'tipomaterial.id')
-        ->join('proveedor', 'material.IdProveedor', '=', 'proveedor.id')
-        ->select('material.*', 'tipomaterial.Descripcion','proveedor.Nombre')
-        ->get();
+        // $materiales=DB::table('material')
+        // ->join('tipomaterial', 'material.IdTipoMaterial', '=', 'tipomaterial.id')
+        // ->join('proveedor', 'material.IdProveedor', '=', 'proveedor.id')
+        // ->select('material.*', 'tipomaterial.Descripcion','proveedor.Nombre')        
+        // ->get();
+        $materiales=Material::orderBy('id')->get();
 
         return view('usuario.entrada.index', compact('materiales','dato'));
     }
@@ -100,7 +101,7 @@ class EntradaController extends Controller
     // return redirect(route('entrada'))->with('mensaje','Usuario actualizado correctamente');  
 
     $idprov=Material::findOrFail($id);
-    $entrada=Entrada::orderBy('created_at', 'desc')->first();
+   
     $dato=$request->get('Existencias');
     DB::table('material') ->where('id', $id)->increment('Existencias', $dato);
     
@@ -109,7 +110,7 @@ class EntradaController extends Controller
     Entrada::create([
          'IdProveedor' => $idprov->IdProveedor 
     ]);
-
+    $entrada=Entrada::orderBy('created_at', 'desc')->first();
     DetallesEntrada::create([
         'idEntrada' => $entrada->id,
         'idMaterial' => $id,

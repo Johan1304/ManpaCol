@@ -19,7 +19,7 @@ class salidaController extends Controller
 
     public function __construct()
     {
-        $this->middleware('checkrole2');
+        // $this->middleware('checkrole2');
     }
 
     /**
@@ -101,6 +101,8 @@ class salidaController extends Controller
                 'IdEncargado' => auth()->id()
 
             ]);
+            $salida=Salida::orderBy('created_at', 'desc')->first();
+
 
             DetallesSalida::create([
                 'idSalida' => $salida->id,

@@ -5,6 +5,7 @@
 @endsection
 
 @section('menu')
+
 @include('theme/admin/asideProfile')
 @endsection
 

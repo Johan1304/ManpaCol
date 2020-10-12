@@ -11,7 +11,7 @@ class SalidaReporteController extends Controller
 
     public function __construct()
     {
-        $this->middleware('checkrole2');
+        // $this->middleware('checkrole2');
     }
     
     /**
@@ -19,17 +19,90 @@ class SalidaReporteController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
+        $tipo=$request->get('tipo');
+        $buscar=$request->get('buscar');
+        $fecha=$request->get('fecha');
+        switch($tipo){
+            case "Proveedor":
+                $tipo="proveedor.Nombre";
+            break;
+
+            case "Material";
+                $tipo="tipomaterial.descripcion";
+            break;
+
+            case "Cantidad":
+                $tipo="detallessalida.Cantidad";
+            break;
+            case "Encargado":
+                $tipo="usuario.name";
+            break;
+            case "Empleado":
+                $tipo="empleado.Nombres";
+            break;
+        }
+        
+        if(isset($tipo,$buscar) && is_null($fecha)){
         $salida=DB::table('salida') 
         ->join ('empleado', 'empleado.id', '=', 'salida.IdEmpleado')
         ->join ('usuario', 'usuario.id', '=', 'salida.idencargado')
         ->join ('detallessalida', 'detallessalida.idSalida', '=', 'salida.id')
         ->join ('material', 'material.id', '=', 'detallessalida.idMaterial')
+        ->join ('proveedor','proveedor.id', '=' , 'material.IdProveedor')
         ->join ('tipomaterial', 'tipomaterial.id','=','material.id')
-        ->select ('salida.created_at', 'usuario.name', 'empleado.Nombres', 'detallessalida.Cantidad', 'tipomaterial.Descripcion')
-        ->get();
-        return view('usuario.reportes.salida',compact('salida'));
+        ->select ('proveedor.Nombre','salida.id','salida.created_at', 'usuario.name', 'empleado.Nombres', 'detallessalida.Cantidad', 'tipomaterial.Descripcion')
+        ->where("$tipo",'like',"%$buscar%")
+        ->orderBy('salida.created_at','desc')
+        ->paginate(8);
+        $tipo=$request->get('tipo');
+        }else{if(isset($fecha) && is_Null($buscar)){
+            $salida=DB::table('salida') 
+            ->join ('empleado', 'empleado.id', '=', 'salida.IdEmpleado')
+            ->join ('usuario', 'usuario.id', '=', 'salida.idencargado')
+            ->join ('detallessalida', 'detallessalida.idSalida', '=', 'salida.id')
+            ->join ('material', 'material.id', '=', 'detallessalida.idMaterial')
+            ->join ('proveedor','proveedor.id', '=' , 'material.IdProveedor')
+            ->join ('tipomaterial', 'tipomaterial.id','=','material.id')
+            ->select ('proveedor.Nombre','salida.id','salida.created_at', 'usuario.name', 'empleado.Nombres', 'detallessalida.Cantidad', 'tipomaterial.Descripcion')
+            ->whereDate('salida.created_at',"$fecha")
+            ->orderBy('salida.created_at','desc')
+            ->paginate(8);
+            $tipo=$request->get('tipo');
+        }else{if(isset($tipo,$buscar,$fecha)){
+            $salida=DB::table('salida') 
+            ->join ('empleado', 'empleado.id', '=', 'salida.IdEmpleado')
+            ->join ('usuario', 'usuario.id', '=', 'salida.idencargado')
+            ->join ('detallessalida', 'detallessalida.idSalida', '=', 'salida.id')
+            ->join ('material', 'material.id', '=', 'detallessalida.idMaterial')
+            ->join ('proveedor','proveedor.id', '=' , 'material.IdProveedor')
+            ->join ('tipomaterial', 'tipomaterial.id','=','material.id')
+            ->select ('proveedor.Nombre','salida.id','salida.created_at', 'usuario.name', 'empleado.Nombres', 'detallessalida.Cantidad', 'tipomaterial.Descripcion')
+            ->whereDate('salida.created_at', "$fecha")  
+            ->where("$tipo",'like',"%$buscar%")
+            ->orderBy('salida.created_at','desc')
+            ->paginate(8);
+            $tipo=$request->get('tipo');
+        }else{
+            $salida=DB::table('salida') 
+            ->join ('empleado', 'empleado.id', '=', 'salida.IdEmpleado')
+            ->join ('usuario', 'usuario.id', '=', 'salida.idencargado')
+            ->join ('detallessalida', 'detallessalida.idSalida', '=', 'salida.id')
+            ->join ('material', 'material.id', '=', 'detallessalida.idMaterial')
+            ->join ('proveedor','proveedor.id', '=' , 'material.IdProveedor')
+            ->join ('tipomaterial', 'tipomaterial.id','=','material.id')
+            ->select ('proveedor.Nombre','salida.id','salida.created_at', 'usuario.name', 'empleado.Nombres', 'detallessalida.Cantidad', 'tipomaterial.Descripcion')
+            ->orderBy('salida.created_at','desc')
+            ->paginate(8);
+            $tipo=$request->get('tipo');
+        }
+            
+        }
+           
+        }
+        
+        return view('usuario.reportes.salida',compact('salida','tipo','buscar','fecha'));
     }
 
     /**

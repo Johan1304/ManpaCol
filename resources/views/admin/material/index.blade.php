@@ -32,22 +32,25 @@
                         <thead class="mdl-data-table mdl-js-data-table borderless-table">
                             <tr>
                                 <th class="mdl-data-table__cell--non-numeric">ID</th>
-                                <th class="mdl-data-table__cell--non-numeric">TipoMaterial</th>
+                                <th class="mdl-data-table__cell--non-numeric">Tipo Material</th>
+                                <th class="mdl-data-table__cell--non-numeric">Tipo Presentacion</th>
                                 <th class="mdl-data-table__cell--non-numeric">Existencias</th>
                                 <th class="mdl-data-table__cell--non-numeric">Color</th>
-                                <th class="mdl-data-table__cell--non-numeric">IdTextura</th>
-                                <th class="mdl-data-table__cell--non-numeric">IdProveedor</th>
+                                <th class="mdl-data-table__cell--non-numeric">Textura</th>
+                                <th class="mdl-data-table__cell--non-numeric">Proveedor</th>
                             </tr>
                         </thead>
                         <tbody>
                            @foreach ($materiales as $material)
                            <tr>
                                 <td class="mdl-data-table__cell--non-numeric">{{$material->id}}</td>
-                                <td class="mdl-data-table__cell--non-numeric">{{$material->Descripcion}}</td>
+                                <td class="mdl-data-table__cell--non-numeric">{{$material->tipoMaterial->Descripcion}}</td>
+                                <td class="mdl-data-table__cell--non-numeric">{{$material->tipoMaterial->tipoPresentacion->Descripcion}} {{$material->tipoMaterial->tipoPresentacion->Cantidad}}{{$material->tipoMaterial->tipoPresentacion->UnidadMedida}}</td>
                                 <td class="mdl-data-table__cell--non-numeric">{{$material->Existencias}}</td>
-                                <td class="mdl-data-table__cell--non-numeric">{{$material->color_id}}</td>
-                                <td class="mdl-data-table__cell--non-numeric">{{$material->IdTextura}}</td>
-                                <td class="mdl-data-table__cell--non-numeric">{{$material->Nombre}}</td>
+                                <td class="mdl-data-table__cell--non-numeric">{{$material->color->descripcion}}</td>
+                                <td class="mdl-data-table__cell--non-numeric">{{$material->textura->descripcion}}</td>
+                                <td class="mdl-data-table__cell--non-numeric">{{$material->proveedor->Nombre}}</td>
+                                
                                 
                         </tr>
                            @endforeach

@@ -10,7 +10,7 @@ class AdminController extends Controller
 
     public function __construct()
     {
-        $this->middleware('checkrole');
+        // $this->middleware('checkrole');
     }
 
     public function index()

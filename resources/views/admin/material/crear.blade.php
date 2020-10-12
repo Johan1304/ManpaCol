@@ -72,7 +72,7 @@
 
                             <ul class="mdl-menu mdl-menu--bottom-left mdl-js-menu dark_dropdown" for="IdTipoUsuario">
                                 @foreach ($tipomateriales as $tipo)
-                                <li class="mdl-menu__item">{{$tipo->id}}</li>
+                                <li class="mdl-menu__item">{{$tipo->Descripcion}}</li>
                                 @endforeach                                     
                             </ul>
 
@@ -102,7 +102,7 @@
     
                                 <ul class="mdl-menu mdl-menu--bottom-left mdl-js-menu dark_dropdown" for="color">
                                         @foreach ($colores as $color)
-                                        <li class="mdl-menu__item">{{$color->Id}}</li>
+                                        <li class="mdl-menu__item">{{$color->descripcion}}</li>
                                         @endforeach
                                 </ul>
                                 <label for="color" requerido>
@@ -124,7 +124,7 @@
 
                             <ul class="mdl-menu mdl-menu--bottom-left mdl-js-menu dark_dropdown" for="textura">
                                     @foreach ($texturas as $textura)
-                                    <li class="mdl-menu__item">{{$textura->Id}}</li>
+                                    <li class="mdl-menu__item">{{$textura->descripcion}}</li>
                                     @endforeach
                             </ul>
                             <label for="textura" requerido>
@@ -146,7 +146,7 @@
     
                             <ul class="mdl-menu mdl-menu--bottom-left mdl-js-menu dark_dropdown" for="gender">
                                     @foreach ($provs as $prov)
-                                    <li class="mdl-menu__item">{{$prov->id}}</li>
+                                    <li class="mdl-menu__item">{{$prov->Nombre}}</li>
                                     @endforeach
                             </ul>
                             <label for="gender" requerido>

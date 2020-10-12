@@ -28,14 +28,24 @@
         <link rel="canonical" href="http://www.example.com/">
         -->
 
+            <!-- Scripts -->
+        <script src="{{ asset('js/app.js') }}" defer></script>
+
+        <!-- Fonts -->
+        <link rel="dns-prefetch" href="//fonts.gstatic.com">
+        <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
+
+        <!-- Styles -->
+        {{-- <link href="{{ asset('css/app.css') }}" rel="stylesheet"> --}}
         <link href='https://fonts.googleapis.com/css?family=Roboto:400,500,300,100,700,900' rel='stylesheet'
-            type='text/css'>
-        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-        <!-- inject:css -->
-        <link rel="stylesheet" href="{{asset("assets/$theme/css/lib/getmdl-select.min.css")}}">
+        type='text/css'>
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <!-- inject:css -->
+    <link rel="stylesheet" href="{{asset("assets/$theme/css/lib/getmdl-select.min.css")}}">
         <link rel="stylesheet" href="{{asset("assets/$theme/css/lib/nv.d3.min.css")}}">
         <link rel="stylesheet" href="{{asset("assets/$theme/css/application.min.css")}}">
-        <link rel="stylesheet" href="{{asset("assets/css/custom.css")}}">
+        
+        <link rel="stylesheet" href="{{asset("assets/$theme/css/custom.css")}}">
         <!-- endinject -->
 
     </head>
@@ -80,4 +90,4 @@
 
     </body>
 
-    </html>
+    

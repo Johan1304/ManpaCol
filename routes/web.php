@@ -23,7 +23,7 @@ Route::get('/home', 'HomeController@index')->name('home')->middleware('auth');
 
 
 
-Route::group(['prefix' => 'admin', 'namespace' => 'Admin','middleware'=>['auth']], function () {
+Route::group(['prefix' => 'admin', 'namespace' => 'Admin','middleware'=>['auth','checkrole']], function () {
 
     Route::get('/','AdminController@index');
     
@@ -90,7 +90,7 @@ Route::group(['prefix' => 'admin', 'namespace' => 'Admin','middleware'=>['auth']
     
 });
 
-Route::group(['prefix'=>'usuario', 'namespace'=>'User','middleware'=>['auth']], function(){
+Route::group(['prefix'=>'usuario', 'namespace'=>'User','middleware'=>['auth','checkrole2']], function(){
     Route::get('/','UsuarioController@index')->name('usuario1');
 
     Route::get('entrada','EntradaController@index')->name('entrada');
@@ -109,6 +109,9 @@ Route::group(['prefix'=>'usuario', 'namespace'=>'User','middleware'=>['auth']], 
     Route::post('MaterialDañado/crear', 'MaterialDañadoController@store')->name('material_danado_guardar');
     
 });
+
+Route::get('seguridad/reset','Seguridad\PasswordController@index')->name('cambio_pass')->middleware('auth');
+Route::put('/usuario','Seguridad\PasswordController@update')->name('act_pass')->middleware('auth');
 
 Route::get('inactivo','InactivoController@index')->name('inactivo');
 

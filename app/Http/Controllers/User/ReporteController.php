@@ -11,7 +11,7 @@ class ReporteController extends Controller
 
     public function __construct()
     {
-        $this->middleware('checkrole2');
+        // $this->middleware('checkrole2');
     }
     
     /**
@@ -21,7 +21,7 @@ class ReporteController extends Controller
      */
     public function index()
     {
-        $materiales=Entrada::orderBy('Id')->get();
+        $materiales=Entrada::orderBy('Id')->paginate(15)->get();
         return view('usuario.reportes.index', compact('materiales'));
     }
 

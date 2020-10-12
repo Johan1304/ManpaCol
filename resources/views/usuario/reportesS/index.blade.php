@@ -53,11 +53,7 @@
                                     <td class="mdl-data-table__cell--non-numeric">
                                     <input class="mdl-textfield__input" type="number" name="Existencias" value="" placeholder="Cantidad" id="{{$material->id}}"/>
                                     </td>
-                                    <td>
-                                    <button type="submit" name="btnsumar" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect button--colored-light-blue">
-                                        DEscargar
-                                    </button>
-                                    </td>
+                                    
                                 
                                     
                                     
@@ -72,6 +68,15 @@
                            
                         </tbody>
                     </table>
+                    <div class="container">
+                            <div class="row">
+                                <br><br><br>
+                                <div class="col-xs-6 col-sm-1 col-md-1 col-lg-1 "> {{ $entrada->links() }}</div>
+                                
+                               
+                            </div>
+                               
+                        </div>
 
         </div>
     </div>

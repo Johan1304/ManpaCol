@@ -11,13 +11,14 @@ use App\Models\Admin\Textura;
 use App\Models\Admin\TipoMaterial;
 use App\Models\Usuario\MaterialDanado;
 use Illuminate\Support\Facades\DB;
+use Symfony\Component\Console\Input\Input;
 
 class MaterialController extends Controller
 {
 
     public function __construct()
     {
-        $this->middleware('checkrole');
+        // $this->middleware('checkrole');
     }
 
 
@@ -28,11 +29,14 @@ class MaterialController extends Controller
      */
     public function index()
     {
-        $materiales=DB::table('material')
-        ->join('tipomaterial', 'material.IdTipoMaterial', '=', 'tipomaterial.id')
-        ->join('proveedor', 'material.IdProveedor', '=', 'proveedor.id')
-        ->select('material.*', 'tipomaterial.Descripcion','proveedor.Nombre')
-        ->get();
+        // $materiales=DB::table('material')
+        // ->join('tipomaterial', 'material.IdTipoMaterial', '=', 'tipomaterial.id')
+        // ->join('proveedor', 'material.IdProveedor', '=', 'proveedor.id')
+        // ->select('material.*', 'tipomaterial.Descripcion','proveedor.Nombre')
+        // ->get();
+        $materiales=Material::orderBy('id')->get();
+        
+        
         return view('admin.material.index', compact('materiales'));
     }
 
@@ -49,7 +53,7 @@ class MaterialController extends Controller
         $provs=Proveedor::orderBy('Id')->get();
         return view('admin.material.crear', compact('tipomateriales','colores','texturas','provs'));
 
-        Excel::load();
+        
     }
 
     /**
@@ -63,7 +67,17 @@ class MaterialController extends Controller
 
     public function guardar(Request $request)
     {
-        Material::create($request->all());
+        $idTipoMaterial=TipoMaterial::where('Descripcion',$request->get('IdTipoMaterial'))->first();
+        $idColor=Color::where('descripcion',$request->get('Color'))->first();
+        $idTextura=Textura::where('descripcion',$request->get('IdTextura'))->first();;
+        $idProveedor=Proveedor::where('Nombre',$request->get('IdProveedor'))->first();;
+        Material::create([
+            'IdTipoMaterial' => $idTipoMaterial->id,
+            'Existencias' => $request->get('Existencias'),
+            'color_id' => $idColor->id,
+            'IdTextura' => $idTextura->id,
+            'IdProveedor' => $idProveedor->id
+        ]);
         return redirect('admin/material');
     }
 

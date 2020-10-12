@@ -32,11 +32,11 @@
                            @foreach ($material as $material)
                         <tr data-id="{{$material->id}}">
                                 <td class="mdl-data-table__cell--non-numeric">{{$material->id}}</td>
-                                <td class="mdl-data-table__cell--non-numeric">{{$material->IdTipoMaterial}}</td>
+                                <td class="mdl-data-table__cell--non-numeric">{{$material->tipoMaterial->Descripcion}}</td>
                                 <td class="mdl-data-table__cell--non-numeric">{{$material->Existencias}}</td>
-                                <td class="mdl-data-table__cell--non-numeric">{{$material->Color}}</td>
-                                <td class="mdl-data-table__cell--non-numeric">{{$material->IdTextura}}</td>
-                                <td class="mdl-data-table__cell--non-numeric">{{$material->IdProveedor}}</td>
+                                <td class="mdl-data-table__cell--non-numeric">{{$material->color->descripcion}}</td>
+                                <td class="mdl-data-table__cell--non-numeric">{{$material->textura->descripcion}}</td>
+                                <td class="mdl-data-table__cell--non-numeric">{{$material->proveedor->Nombre}}</td>
                                 
 
                                 <form action="{{route('actualizar_salida',['id'=>$material->id])}}" id="form-general" class="form" method='POST'>
@@ -88,12 +88,5 @@
 
         </div>
     </div>
+    
 @endsection
-<script type="text/javascript">
-    public function sumar($Existencias,$cantidad){
-        $sumar = $Existencias+$cantidad;
-    }else
-    if($cantidad>10000){
-        $this().text("Ha excedido la cantidad maxima");
-    }
-    </script>
