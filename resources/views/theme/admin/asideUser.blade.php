@@ -27,10 +27,7 @@
                                                Salida
                                         </div>
                                 </a>
-                                <a class="mdl-navigation__link" href="">
-                                    <i class="material-icons">sort</i>
-                                    Material Dañado
-                                </a>
+                                
                                 
                             </div>
                     </div>
@@ -56,10 +53,7 @@
                                                Salida
                                         </div>
                                 </a>
-                                <a class="mdl-navigation__link" href="">
-                                    <i class="material-icons">sort</i>
-                                    Material Dañado
-                                </a>
+                               
                                 
                             </div>
                     </div>

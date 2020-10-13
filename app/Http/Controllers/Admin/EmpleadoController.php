@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Models\Admin\Empleado;
+use App\Models\Admin\TipoDocumento;
 
 class EmpleadoController extends Controller
 {
@@ -33,7 +34,10 @@ class EmpleadoController extends Controller
      */
     public function crear()
     {
-        //
+        $documentos=TipoDocumento::orderBy('Descripcion')->get();    
+        
+        return view('admin.empleado.crear', compact('documentos'));
+        
     }
 
     /**
@@ -44,7 +48,10 @@ class EmpleadoController extends Controller
      */
     public function guardar(Request $request)
     {
-        //
+        Empleado::create($request->all());
+        return redirect('admin/empleado/crear')->with('Mensaje','Color creado correctamente');
+
+
     }
 
     /**
@@ -66,7 +73,9 @@ class EmpleadoController extends Controller
      */
     public function editar($id)
     {
-        //
+        $empleado=Empleado::findOrFail($id);
+        $documentos=TipoDocumento::orderBy('Descripcion')->get();  
+        return view('admin.empleado.editar', compact('empleado','documentos')); 
     }
 
     /**
@@ -78,7 +87,13 @@ class EmpleadoController extends Controller
      */
     public function actualizar(Request $request, $id)
     {
-        //
+        $validacion=$request->validate([
+            
+            'NumeroDoc' => 'required|unique:empleado,NumeroDoc,'.$id,
+            
+        ]);
+        Empleado::findOrFail($id)->update($request->all());
+        return redirect(route('empleado'))->with('mensaje','actualizado correctamente'); 
     }
 
     /**

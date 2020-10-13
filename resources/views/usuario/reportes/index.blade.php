@@ -47,7 +47,7 @@
                 </td>
                 <td class="mdl-data-table__cell--non-numeric" WIDTH="100" HEIGHT="50">
                 <div class="mdl-cell  mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-                    <input class="mdl-textfield__input" type="text" name="buscar" id="buscar" value="{{$buscar}}"/>
+                    <input class="mdl-textfield__input" type="text" name="buscar" id="buscar" pattern="[A-Za-z0-9]{1,45}" value="{{$buscar}}"/>
                     <label class="mdl-textfield__label" for="firstName" requerido>Buscar</label>
                 </div>
                 </td>

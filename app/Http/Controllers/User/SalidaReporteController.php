@@ -52,7 +52,8 @@ class SalidaReporteController extends Controller
         ->join ('material', 'material.id', '=', 'detallessalida.idMaterial')
         ->join ('proveedor','proveedor.id', '=' , 'material.IdProveedor')
         ->join ('tipomaterial', 'tipomaterial.id','=','material.id')
-        ->select ('proveedor.Nombre','salida.id','salida.created_at', 'usuario.name', 'empleado.Nombres', 'detallessalida.Cantidad', 'tipomaterial.Descripcion')
+        ->join ('tipopresentacion', 'tipopresentacion.id','=', 'tipomaterial.IdTipoPresentacion')
+        ->select ('proveedor.Nombre','salida.id','salida.created_at', 'usuario.name', 'empleado.Nombres', 'detallessalida.Cantidad', 'tipomaterial.Descripcion','tipopresentacion.UnidadMedida')
         ->where("$tipo",'like',"%$buscar%")
         ->orderBy('salida.created_at','desc')
         ->paginate(8);
@@ -65,7 +66,8 @@ class SalidaReporteController extends Controller
             ->join ('material', 'material.id', '=', 'detallessalida.idMaterial')
             ->join ('proveedor','proveedor.id', '=' , 'material.IdProveedor')
             ->join ('tipomaterial', 'tipomaterial.id','=','material.id')
-            ->select ('proveedor.Nombre','salida.id','salida.created_at', 'usuario.name', 'empleado.Nombres', 'detallessalida.Cantidad', 'tipomaterial.Descripcion')
+            ->join ('tipopresentacion', 'tipopresentacion.id','=', 'tipomaterial.IdTipoPresentacion')
+            ->select ('proveedor.Nombre','salida.id','salida.created_at', 'usuario.name', 'empleado.Nombres', 'detallessalida.Cantidad', 'tipomaterial.Descripcion','tipopresentacion.UnidadMedida')
             ->whereDate('salida.created_at',"$fecha")
             ->orderBy('salida.created_at','desc')
             ->paginate(8);
@@ -78,7 +80,8 @@ class SalidaReporteController extends Controller
             ->join ('material', 'material.id', '=', 'detallessalida.idMaterial')
             ->join ('proveedor','proveedor.id', '=' , 'material.IdProveedor')
             ->join ('tipomaterial', 'tipomaterial.id','=','material.id')
-            ->select ('proveedor.Nombre','salida.id','salida.created_at', 'usuario.name', 'empleado.Nombres', 'detallessalida.Cantidad', 'tipomaterial.Descripcion')
+            ->join ('tipopresentacion', 'tipopresentacion.id','=', 'tipomaterial.IdTipoPresentacion')
+            ->select ('proveedor.Nombre','salida.id','salida.created_at', 'usuario.name', 'empleado.Nombres', 'detallessalida.Cantidad', 'tipomaterial.Descripcion','tipopresentacion.UnidadMedida')
             ->whereDate('salida.created_at', "$fecha")  
             ->where("$tipo",'like',"%$buscar%")
             ->orderBy('salida.created_at','desc')
@@ -92,7 +95,8 @@ class SalidaReporteController extends Controller
             ->join ('material', 'material.id', '=', 'detallessalida.idMaterial')
             ->join ('proveedor','proveedor.id', '=' , 'material.IdProveedor')
             ->join ('tipomaterial', 'tipomaterial.id','=','material.id')
-            ->select ('proveedor.Nombre','salida.id','salida.created_at', 'usuario.name', 'empleado.Nombres', 'detallessalida.Cantidad', 'tipomaterial.Descripcion')
+            ->join ('tipopresentacion', 'tipopresentacion.id','=', 'tipomaterial.IdTipoPresentacion')
+            ->select ('proveedor.Nombre','salida.id','salida.created_at', 'usuario.name', 'empleado.Nombres', 'detallessalida.Cantidad', 'tipomaterial.Descripcion','tipopresentacion.UnidadMedida')
             ->orderBy('salida.created_at','desc')
             ->paginate(8);
             $tipo=$request->get('tipo');

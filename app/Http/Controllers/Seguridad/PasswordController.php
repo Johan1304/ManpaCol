@@ -15,9 +15,14 @@ class PasswordController extends Controller
         return view('seguridad.reset');
     }
 
-    public function update(ValidatePassword $request)
+    public function update(Request $request)
     {
        
+        $this->validate($request, [
+            
+            'password' => 'required|confirmed|min:6|max:32',
+            'password_confirmation' => 'required'
+        ]);
         // Note la regla de validación "confirmed", que solicitará que usted agregue un campo extra llamado password_confirm
 
         $user = Auth::user(); // Obtenga la instancia del usuario en sesión

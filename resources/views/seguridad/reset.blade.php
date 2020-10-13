@@ -58,8 +58,8 @@
             </div>
 
             <div class="mdl-card__supporting-text">
-                <form method="PUT" action="{{ route('act_pass') }}">
-                    @method('PUT')
+                <form method="POST" action="{{ route('act_pass') }}">
+                    @method('POST')
                     @csrf
     
                             <input type="hidden" name="token" value="">
@@ -85,26 +85,26 @@
 
                         
 
-                        <div class="mdl-grid">                             
+                        {{-- <div class="mdl-grid">                             
                             <div class="mdl-cell mdl-cell--6-col mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-                               <input id="password" type="password" class="mdl-textfield__input @error('password') is-invalid @enderror" name="old_password" required autocomplete="new-password">
+                               <input id="password" type="password" class="mdl-textfield__input @error('password') is-invalid @enderror" name="password" required >
    
                                
-                                @if ($errors->has('old_password'))
+                                @if ($errors->has('password'))
                                 <div class="alert alert-danger">
                                     
-                                       {{ $errors->first('old_password') }}
+                                       {{ $errors->first('password') }}
                                     
                                 </div>
                                 @endif
                                 <label for="password" class="mdl-textfield__label">{{ __('Contraseña actual') }}</label>
                            </div>
-                       </div>
+                       </div> --}}
 
 
                         <div class="mdl-grid">                             
                              <div class="mdl-cell mdl-cell--6-col mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-                                <input id="password" type="password" class="mdl-textfield__input @error('password') is-invalid @enderror" name="password" required autocomplete="new-password">
+                                <input id="password" type="password" class="mdl-textfield__input @error('password') is-invalid @enderror" name="password" autocomplete="password">
     
                                 @if ($errors->has('password'))
                                 <div class="alert alert-danger">
@@ -113,21 +113,21 @@
                                     
                                 </div>
                                 @endif
-                                 <label for="password" class="mdl-textfield__label">{{ __('Contraseña actual') }}</label>
+                                 <label for="password" class="mdl-textfield__label">{{ __('Nueva contraseña') }}</label>
                             </div>
                         </div>
 
                         <div class="mdl-grid">                           
                             <div class="mdl-cell mdl-cell--6-col mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-                                <input id="password-confirm" type="password" class="mdl-textfield__input" name="password_confirm" required autocomplete="new-password">
-                                @if ($errors->has('password_confirm'))
+                                <input id="password-confirm" type="password" class="mdl-textfield__input" name="password_confirmation"  autocomplete="new-password">
+                                @if ($errors->has('password_confirmation'))
                                 <div class="alert alert-danger">
                                     
-                                       {{ $errors->first('password_confirm') }}
+                                       {{ $errors->first('password_confirmation') }}
                                     
                                 </div>
                                 @endif
-                                <label for="password-confirm" class="mdl-textfield__label">{{ __('Confirm Password') }}</label>
+                                <label for="password-confirm" class="mdl-textfield__label">{{ __('Confirmar contraseña') }}</label>
                             </div>
                         </div>
 

@@ -35,7 +35,7 @@ class ValidatePassword extends FormRequest
         return[
             
             'old_password.required' => 'El campo contrasña actual es requerido',
-            'old_password.confirmed' => 'El campo contrasña actual no coincide con su actual contraseña',
+            'old_password.api' => 'El campo contrasña actual no coincide con su actual contraseña',
             'password_confirm.same' => 'Las contraseñas no coinciden',
             'email.email' => 'El correo debe contener un "@" '
             

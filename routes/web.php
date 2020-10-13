@@ -84,6 +84,10 @@ Route::group(['prefix' => 'admin', 'namespace' => 'Admin','middleware'=>['auth',
 
     /*Empleado*/
     Route::get('empleado', 'EmpleadoController@index')->name('empleado');
+    Route::get('empleado/crear', 'EmpleadoController@crear')->name('empleado_crear');
+    Route::post('empleado', 'EmpleadoController@guardar')->name('empleado_guardar');
+    Route::get('empleado/{id}/editar', 'EmpleadoController@editar')->name('editar_empleado');
+    Route::put('empleado/{id}', 'EmpleadoController@actualizar')->name('actualizar_empleado');
     Route::get('', 'AdminController@index');
 
 
@@ -111,7 +115,7 @@ Route::group(['prefix'=>'usuario', 'namespace'=>'User','middleware'=>['auth','ch
 });
 
 Route::get('seguridad/reset','Seguridad\PasswordController@index')->name('cambio_pass')->middleware('auth');
-Route::put('/usuario','Seguridad\PasswordController@update')->name('act_pass')->middleware('auth');
+Route::post('/usuario','Seguridad\PasswordController@update')->name('act_pass')->middleware('auth');
 
 Route::get('inactivo','InactivoController@index')->name('inactivo');
 

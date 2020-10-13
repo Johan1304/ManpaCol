@@ -6,7 +6,7 @@
 
 @section('menu')
 
-@include('theme/admin/asideProfile')
+@include('theme/admin/asideAdm')
 @endsection
 
 @section('contenido')

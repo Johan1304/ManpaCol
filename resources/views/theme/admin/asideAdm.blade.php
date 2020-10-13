@@ -4,9 +4,13 @@
         <div class="scroller" id="scroller">
             <div class="scroll__container" id="scroll__container">
                 <nav class="mdl-navigation">
-                    <a class="mdl-navigation__link mdl-navigation__link--current" href="{{route('usuario')}}">
+                    <a class="mdl-navigation__link " href="{{route('usuario')}}">
                             <i class="material-icons">people</i>
                             Usuarios
+                    </a>
+                    <a class="mdl-navigation__link " href="{{route('empleado')}}">
+                            <i class="material-icons">people</i>
+                            Empleados
                     </a>
                     <div class="sub-navigation">
                         <a class="mdl-navigation__link">

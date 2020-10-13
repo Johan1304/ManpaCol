@@ -101,7 +101,7 @@
                                 <td class="mdl-data-table__cell--non-numeric">{{$material->name}}</td>
                                 <td class="mdl-data-table__cell--non-numeric">{{$material->Descripcion}}</td>
                                 <td class="mdl-data-table__cell--non-numeric">{{$material->Nombre}}</td>
-                                <td class="mdl-data-table__cell--non-numeric">{{$material->Cantidad}}</td>
+                                <td class="mdl-data-table__cell--non-numeric">{{$material->Cantidad}} {{$material->UnidadMedida}}</td>
                                 <td class="mdl-data-table__cell--non-numeric">{{\Carbon\Carbon::parse($material->created_at)->format('d/m/Y')}}</td>
                                 <td class="mdl-data-table__cell--non-numeric">{{\Carbon\Carbon::parse($material->created_at)->format('H:i:s')}}</td>
 
